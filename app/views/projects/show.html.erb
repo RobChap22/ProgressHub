@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="card-project-show">
+    <h1><%= @project.title %></h1>
+    <% @steps.each do |step| %>
+      <p><%= "#{step.ordinal} - #{step.description}" %></p>
+    <% end %>
+  </div>
+</div>
