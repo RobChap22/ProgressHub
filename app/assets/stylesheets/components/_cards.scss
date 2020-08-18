@@ -4,6 +4,11 @@
   grid-gap: 16px;
 }
 
+.card img{
+    object-fit: cover;
+    height: 220px;
+}
+
 .card-category {
   background-size: cover;
   background-position: center;
