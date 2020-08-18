@@ -1,12 +1,7 @@
 require 'faker'
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-# Users
+
+puts 'Deleting all of projects...'
+Project.delete_all
 puts "Cleaning users..."
 User.destroy_all
 
@@ -43,8 +38,24 @@ end
 puts "Created #{User.count} users!"
 
 # Projects
-# puts 'Deleting all of projects...'
-# Project.delete_all
 
-# puts 'Creating projects...'
+puts 'Creating projects...'
+@users = User.all
+@users.each do |user|
+  proj = Project.create!(
+    title: Faker::Company.industry,
+    user: user
+  )
+  ord = 1
+  rand(3..6).times do
+    ProjectStep.create!(
+      project: proj,
+      ordinal: ord,
+      description: Faker::Company.bs
+    )
+    ord += 1
+  end
+end
 
+puts "#{Project.count} projects created."
+puts "Seed complete."
