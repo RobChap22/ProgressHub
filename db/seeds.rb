@@ -44,14 +44,14 @@ puts 'Creating projects...'
 @users.each do |user|
   proj = Project.create!(
     title: Faker::Company.industry,
-    user: user
+    user: user,
+    description: Faker::Company.bs
   )
   ord = 1
   rand(3..6).times do
     ProjectStep.create!(
       project: proj,
-      ordinal: ord,
-      description: Faker::Company.bs
+      ordinal: ord
     )
     ord += 1
   end
