@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @steps = @project.project_steps.order(:ordinal)
   end
 
   private
