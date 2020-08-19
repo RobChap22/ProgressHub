@@ -6,15 +6,35 @@
 
 .card-index {
   background-color: white;
+  border-radius: 20px;
+  // overflow: hidden;
+  position: relative;
+  height: 360px;
+  display: flex;
+  flex-direction: column;
 }
 
 .card-index h2 {
   font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 350px;
+}
+
+.card-index .box {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card-index-img {
     object-fit: cover;
     height: 220px;
+    width: 100%;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
 }
 
 .card-index-footer {
@@ -63,3 +83,53 @@
   }
 }
 
+// Card hover
+
+.card-index:hover {
+  transform: translateY(-5px) scale(1.005) translateZ(0);
+  box-shadow: 0 24px 36px rgba(0,0,0,0.11),
+    0 24px 46px (rgba(220, 233, 255, 0.48));
+}
+
+.card-index:hover .overlay {
+  transform: scale(4) translateZ(0);
+}
+
+.card-index:hover .circle {
+  border-color: #f1f7ff;
+  background: #DCE9FF;
+}
+
+.card-index:hover p {
+  color: v#4C5656;
+}
+
+.card-index:active {
+  transform: scale(1) translateZ(0);
+  box-shadow: 0 15px 24px rgba(0,0,0,0.11),
+    0 15px 24px (rgba(220, 233, 255, 0.48));
+}
+
+.card p {
+  font-size: 17px;
+  color: #4C5656;
+  margin-top: 30px;
+  z-index: 1000;
+  transition: color 0.3s ease-out;
+}
+
+.image-with-overlay > .card-index-overlay {
+  opacity: 0;
+  background-color: rgba(#DCE9FF, 0.3);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  position: absolute;
+  transition: opacity 0.3s ease-in;
+}
+
+.card-index:hover .card-index-overlay {
+  opacity: 1;
+}
