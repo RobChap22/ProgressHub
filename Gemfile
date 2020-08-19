@@ -25,6 +25,7 @@ gem 'redis', '~> 4.0'
 # ADDED
 gem 'faker'
 gem 'pundit'
+gem 'dotenv-rails', groups: [:development, :test]
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
