@@ -1,3 +1,29 @@
-<h1>UserProjects#show</h1>
-<p>Find me in app/views/user_projects/show.html.erb</p>
-<p>@user_project.project.title</p>
+<div class="container my-5">
+  <div class="row">
+    <div class="col-3">
+      <div class="nav nav-tabs flex-column" id="nav-tab" role="tablist" aria-orientation="vertical">
+        <a class="nav-link active" id="nav-overview-tab" data-toggle="tab" href="#nav-overview" role="tab" aria-controls="nav-overview" aria-selected="true">Overview</a>
+        <% @steps.each do |step| %>
+          <a class="nav-link" id="nav-<%= step.ordinal %>-tab" data-toggle="tab" href="#nav-<%= step.ordinal %>" role="tab" aria-controls="nav-<%= step.ordinal %>" aria-selected="false"><%= "Step #{step.ordinal}" %></a>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-9">
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-overview" role="tabpanel" aria-labelledby="nav-overview-tab">
+          <h1><%= @user_project.project.title %></h1>
+          <%= cl_image_tag @user_project.project.photo.key %>
+        </div>
+        <% @steps.each do |step| %>
+          <div class="tab-pane fade" id="nav-<%= step.ordinal %>" role="tabpanel" aria-labelledby="nav-<%= step.ordinal %>-tab">
+            <p><%= step.description %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--
+<a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a> -->
