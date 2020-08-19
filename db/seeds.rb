@@ -24,7 +24,7 @@ ver = User.create!(
     email: "veronica@caramail.com",
     password: "password"
   )
-ver.photo.attach(io: verpic, filename: 'ver.jpeg', content_type: 'image/jpeg')
+ver.photo.attach(io: yanpic, filename: 'ver.jpeg', content_type: 'image/jpeg')
 
 moe = User.create!(
     username: "Moe",
