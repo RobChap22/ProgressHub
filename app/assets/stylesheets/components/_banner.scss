@@ -1,0 +1,10 @@
+.banner {
+  height: calc(100vh - 70px);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  // background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset-url(background-home.jpg);
+  background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), asset-url("background5-home.jpg");
+  background-size: cover;
+  background-position: center;
+}

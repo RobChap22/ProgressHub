@@ -1,6 +1,10 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: rgb(250, 244, 244);
+  h1 {
+     margin: 0;
+     font-size: 32px;
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +13,24 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.navbar-home {
+  width: 100%;
+  background: white;
+  box-shadow: none;
+  .navbar-wagon-link {
+    color: blueviolet;
+    font-weight: bold;
+  }
+}
+
+/* Style the search box inside the navigation bar */
+.navsearch {
+  float: right;
+  padding: 16px 4px;
+  margin-left: 16px;
+  font-size: 17px;
+  height: 24px;
+  border: 1px solid lightgray;
 }
