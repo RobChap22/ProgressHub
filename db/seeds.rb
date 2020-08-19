@@ -13,35 +13,35 @@ User.destroy_all
 
 puts 'Creating users...'
 rob = User.create!(
-    username: "Rob",
-    email: "rob@caramail.com",
-    password: "password"
-  )
+  username: "Rob",
+  email: "rob@caramail.com",
+  password: "password"
+)
 rob.photo.attach(io: robpic, filename: 'rob.jpeg', content_type: 'image/jpeg')
 
 ver = User.create!(
-    username: "Veronica",
-    email: "veronica@caramail.com",
-    password: "password"
-  )
+  username: "Veronica",
+  email: "veronica@caramail.com",
+  password: "password"
+)
 ver.photo.attach(io: yanpic, filename: 'ver.jpeg', content_type: 'image/jpeg')
 
 moe = User.create!(
-    username: "Moe",
-    email: "moe@caramail.com",
-    password: "password"
-  )
+  username: "Moe",
+  email: "moe@caramail.com",
+  password: "password"
+)
 moe.photo.attach(io: moepic, filename: 'moe.jpeg', content_type: 'image/jpeg')
 
 5.times do
-    username = Faker::Name.first_name
-    next if User.find_by(username: username)
+  username = Faker::Name.first_name
+  next if User.find_by(username: username)
 
-    user = User.create!(
+  user = User.create!(
     username: username,
     email: Faker::Internet.email,
     password: "password"
-    )
+  )
 end
 
 puts "Created #{User.count} users!"
