@@ -4,25 +4,30 @@
   grid-gap: 16px;
 }
 
+.card-index {
+  background-color: white;
+}
+
+.card-index h2 {
+  font-weight: bold;
+}
+
 .card-index-img {
     object-fit: cover;
     height: 220px;
 }
 
-.card-category {
-  background-size: cover;
-  background-position: center;
-  height: 180px;
+.card-index-footer {
   display: flex;
-  justify-content: center;
   align-items: center;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
+
+
+
+.card-project-show {
+
+}
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
