@@ -1,3 +1,4 @@
+<!-- <div class="background-lightblue"> -->
 <div class="container py-4">
   <div class="cards">
     <% @projects.each do |project| %>
@@ -6,7 +7,7 @@
           <%= image_tag "https://img.delicious.com.au/5PiJMQy-/w759-h506-cfill/del/2015/12/cornetti-italian-croissants-24713-1.jpg", alt: "card-img" %>
             <div class="box p-2">
               <div class="card-index-info">
-                <h2><%= project.title %></h2>
+                <h2 class= "font-weight-bold"><%= project.title %></h2>
                 <p><%= project.description %></p>
               </div>
               <div class="card-index-footer">
@@ -18,3 +19,5 @@
    <% end %>
   </div>
 </div>
+
+<!-- </div> -->

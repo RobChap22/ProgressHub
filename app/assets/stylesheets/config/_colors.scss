@@ -3,13 +3,29 @@
 // For example:
 $red: #FD1015;
 $blue: #bae8e8;
-$dark_blue: #272343;
+$light-blue: #e3f6f5;
+$dark_blue1: #272343; //headline
+$dark_blue2: #2d334a; //paragraph
+
 $yellow: #ffd803;
 $orange: #E67E22;
 $green: #1EDD88;
-$gray: #F2994A;
+$gray: rgba(0, 0, 0, 0.8);
+
+
 $light-gray: #F4F4F4;
+$white: #fffffe;
 
 //color from happyhue.co
+a {
+  color: $gray !important;
+}
 
+h1, h2{
+  color: $dark_blue1 !important;
+  // text-weight: bold;
+}
 
+p{
+  color: $dark_blue2 !important;
+}

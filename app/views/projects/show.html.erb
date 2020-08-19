@@ -4,5 +4,6 @@
     <% @steps.each do |step| %>
       <p><%= "#{step.ordinal} - #{step.description}" %></p>
     <% end %>
+    <%= link_to "Back to list", projects_path %>
   </div>
 </div>
