@@ -1,6 +1,11 @@
-<div class="container">
+<div class="container py-4">
   <div class="card-project-show">
     <h1><%= @project.title %></h1>
+
+    <!-- replace with project image when available -->
+    <%= cl_image_tag("hpqhwszy1g7izwulxx5w",
+      width: 400, height: 300, crop: :fill) %>
+
     <% if @project.user.photo.attached? %>
       <%= cl_image_tag @project.user.photo.key, class: "avatar" %>
     <% else %>
@@ -9,13 +14,12 @@
     <% @steps.each do |step| %>
       <p><%= "#{step.ordinal} - #{step.description}" %></p>
     <% end %>
-      <div class="btn btn-info">Enroll</div>
+      <%= simple_form_for [@project, @user_project] do |f| %>
+          <%= f.submit "Enroll", class: "btn btn-info"%>
+      <% end %>
+
       <!-- <div class="btn btn-primary">Enroll</div> -->
       <!-- <div class="btn btn-secondary">Enroll</div> -->
     <p><%= link_to "Back to list", projects_path %></p>
   </div>
-
-  <!-- cloudinary test, please ignore -->
-  <%= cl_image_tag("hpqhwszy1g7izwulxx5w",
-      width: 400, height: 300, crop: :fill) %>
 </div>

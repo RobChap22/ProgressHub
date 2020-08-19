@@ -1,4 +1,8 @@
 // Define variables for your color scheme
+//color from happyhue.co
+$cue_yellow: #ffd803;
+$cue_dark_blue: #272343;
+$cue_blue: #6be0e0;
 
 // For example:
 $red: #FD1015;
@@ -14,6 +18,7 @@ $gray: rgba(0, 0, 0, 0.8);
 
 
 $light-gray: #F4F4F4;
+
 $white: #fffffe;
 
 //color from happyhue.co
@@ -28,4 +33,9 @@ h1, h2{
 
 p{
   color: $dark_blue2 !important;
+}
+
+
+body {
+  background-color: $light-blue !important;
 }
