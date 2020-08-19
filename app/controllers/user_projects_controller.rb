@@ -15,5 +15,6 @@ class UserProjectsController < ApplicationController
   def show
     @user_project = UserProject.find(params[:id])
     authorize @user_project
+    @steps = @user_project.project.project_steps.order(:ordinal)
   end
 end
