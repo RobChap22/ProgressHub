@@ -1,8 +1,17 @@
 <div class="container">
   <div class="card-project-show">
     <h1><%= @project.title %></h1>
+    <% if @project.user.photo.attached? %>
+      <%= cl_image_tag @project.user.photo.key, class: "avatar" %>
+    <% else %>
+      <%= image_tag "default-avatar.jpg", class: "avatar" %>
+    <% end %>
     <% @steps.each do |step| %>
       <p><%= "#{step.ordinal} - #{step.description}" %></p>
     <% end %>
   </div>
+
+  <!-- cloudinary test, please ignore -->
+  <%= cl_image_tag("hpqhwszy1g7izwulxx5w",
+      width: 400, height: 300, crop: :fill) %>
 </div>
