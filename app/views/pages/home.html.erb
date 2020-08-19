@@ -1,1 +1,9 @@
-<h1>Progresshub</h1>
+<%= content_for(:navbar_class, "navbar-home") %>
+
+<div class="banner">
+  <div class="banner-content">
+    <h1>Progresshub</h1>
+    <p></p>
+    <%= link_to "start now", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+  </div>
+</div>
