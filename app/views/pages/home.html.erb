@@ -4,6 +4,7 @@
   <div class="banner-content">
     <h1>Progresshub</h1>
     <p></p>
-    <%= link_to "start now", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+    <%= link_to "View projects", projects_path, class: "btn btn-lg btn-primary" %>
+    <%= link_to "Sign up", new_user_registration_path, class: "btn btn-lg btn-primary" unless current_user%>
   </div>
 </div>
