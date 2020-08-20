@@ -45,7 +45,16 @@
 
 
 .card-project-show {
-
+  position: absolute;
+  width: 768px;
+  height: 804px;
+  left: 283px;
+  top: 113px;
+  background: #FFFFFE;
+  box-shadow: 0 15px 24px rgba(0,0,0,0.11),
+    0 15px 24px (rgba(220, 233, 255, 0.48));
+  left: 29%;
+  border-radius: 20px;
 }
 
 // Smallest device
@@ -132,4 +141,47 @@
 
 .card-index:hover .card-index-overlay {
   opacity: 1;
+}
+
+// card project show content
+.card-project-show .title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.card-project-show .image-container {
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+}
+
+.card-project-show .image-container img {
+  width: 70%;
+}
+
+.card-project-show .avatar {
+
+}
+
+.card-project-show .user-info {
+display: flex;
+justify-content: space-between;
+width: 75%;
+margin: auto;
+padding: 20px;
+}
+
+.card-project-show .steps {
+border: lightgrey solid 1px;
+padding: 14px;
+width: 70%;
+margin: auto;
+height: 210px;
+}
+
+.card-project-show .footer {
+  display: flex;
+  width: 70%;
 }
