@@ -1,0 +1,27 @@
+.tab-buttons-progresshub {
+  background-color: $light-blue;
+}
+
+.tab-contents-progresshub {
+  background-color: white;
+  padding: 16px;
+  margin: 16px;
+  border-radius: 16px;
+  border: 2px solid $dark_blue1;
+}
+
+.tab-contents-progresshub img {
+  width: 100%;
+  height: auto;
+}
+
+.tab-user-project-overview {
+  text-align: center;
+}
+
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    color: $dark_blue1;
+    background-color: $yellow;
+    border: 2px solid $dark_blue1;
+}

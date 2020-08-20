@@ -30,11 +30,11 @@
 }
 
 .card-index-img {
-    object-fit: cover;
-    height: 220px;
-    width: 100%;
-    border-top-right-radius: 20px;
-    border-top-left-radius: 20px;
+  object-fit: cover;
+  height: 220px;
+  width: 100%;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
 }
 
 .card-index-footer {
@@ -55,41 +55,6 @@
     0 15px 24px (rgba(220, 233, 255, 0.48));
   left: 29%;
   border-radius: 20px;
-}
-
-// Smallest device
-@media (min-width: 100px) and (max-width: 575px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-  .cards {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  .cards {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  .cards {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
 }
 
 // Card hover
@@ -143,6 +108,7 @@
   opacity: 1;
 }
 
+
 // card project show content
 .card-project-show .title {
   display: flex;
@@ -185,3 +151,39 @@ height: 210px;
   display: flex;
   width: 70%;
 }
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+

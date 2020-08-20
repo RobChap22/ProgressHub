@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
   def dashboard
-    @user_projects = policy_scope(UserProject)
+    @active_projects = policy_scope(UserProject).where(completed: false)
+    @finished_projects = policy_scope(UserProject).where(completed: true)
     skip_authorization
-    # @user_projects = current_user.user_projects
   end
 end
