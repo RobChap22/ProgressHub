@@ -2,9 +2,10 @@
 
 <div class="banner">
   <div class="banner-content">
-    <h1>Progresshub</h1>
-    <p></p>
-    <%= link_to "View projects", projects_path, class: "btn btn-lg btn-primary" %>
-    <%= link_to "Sign up", new_user_registration_path, class: "btn btn-lg btn-primary" unless current_user%>
+    <h1>ProgressHub</h1>
+    <div class="d-flex mt-5 justify-content-center">
+      <div><%= link_to "View projects", projects_path, class: "btn btn-lg landing-button" %></div>
+      <div><%= link_to "Sign up", new_user_registration_path, class: "btn btn-lg landing-button" unless current_user%></div>
+    </div>
   </div>
 </div>
