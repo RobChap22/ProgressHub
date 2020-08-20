@@ -1,6 +1,17 @@
-<h1>Active projects</h1>
-<% @user_projects.each do |user_project| %>
-  <%= user_project.project.title %>
-  <%= user_project.project.description %>
-<% end %>
-<p>Find me in app/views/users/dashboard.html.erb</p>
+<div class="container p-5">
+  <div class="user-project-dash d-flex">
+    <div class="user-projects-dash">
+      <h1>Active Projects</h1>
+      <% @active_projects.each do |user_project| %>
+        <p><%= user_project.project.title %></p>
+      <% end %>
+    </div>
+
+    <div class="user-projects-dash">
+      <h1>Finished Projects</h1>
+      <% @finished_projects.each do |user_project| %>
+        <p><%= user_project.project.title %></p>
+      <% end %>
+    </div>
+  </div>
+</div>
