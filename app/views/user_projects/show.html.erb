@@ -1,28 +1,30 @@
-<div class="container my-5">
-  <div class="row">
-    <div class="col-3">
-      <div class="nav nav-tabs flex-column" id="nav-tab" role="tablist" aria-orientation="vertical">
-        <a class="nav-link active" id="nav-overview-tab" data-toggle="tab" href="#nav-overview" role="tab" aria-controls="nav-overview" aria-selected="true">Overview</a>
-        <% @steps.each do |step| %>
-          <a class="nav-link" id="nav-<%= step.ordinal %>-tab" data-toggle="tab" href="#nav-<%= step.ordinal %>" role="tab" aria-controls="nav-<%= step.ordinal %>" aria-selected="false"><%= "Step #{step.ordinal}" %></a>
-        <% end %>
-      </div>
+<div class="row">
+  <div class="col-2">
+    <div class="nav nav-tabs flex-column tab-buttons-progresshub m-2" id="nav-tab" role="tablist" aria-orientation="vertical">
+      <a class="nav-link active mb-1" id="nav-overview-tab" data-toggle="tab" href="#nav-overview" role="tab" aria-controls="nav-overview" aria-selected="true">Overview</a>
+      <% @steps.each do |step| %>
+        <a class="nav-link mb-1" id="nav-<%= step.ordinal %>-tab" data-toggle="tab" href="#nav-<%= step.ordinal %>" role="tab" aria-controls="nav-<%= step.ordinal %>" aria-selected="false"><%= "Step #{step.ordinal}" %></a>
+      <% end %>
     </div>
-    <div class="col-9">
-      <div class="tab-content" id="nav-tabContent">
-        <div class="tab-pane fade show active" id="nav-overview" role="tabpanel" aria-labelledby="nav-overview-tab">
+  </div>
+  <div class="col-6">
+    <div class="tab-content tab-contents-progresshub" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-overview" role="tabpanel" aria-labelledby="nav-overview-tab">
+        <div class="tab-user-project-overview">
           <h1><%= @user_project.project.title %></h1>
           <%= cl_image_tag @user_project.project.photo.key %>
         </div>
-        <% @steps.each do |step| %>
-          <div class="tab-pane fade" id="nav-<%= step.ordinal %>" role="tabpanel" aria-labelledby="nav-<%= step.ordinal %>-tab">
-            <p><%= step.description %></p>
-          </div>
-        <% end %>
       </div>
+      <% @steps.each do |step| %>
+        <div class="tab-pane fade p-5" id="nav-<%= step.ordinal %>" role="tabpanel" aria-labelledby="nav-<%= step.ordinal %>-tab">
+          <p><%= step.description %></p>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
+
+
 
 
 <!--
