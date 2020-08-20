@@ -16,4 +16,8 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     authorize @project
   end
+
+  def project_params
+    params.require(:restaurant).permit(:name, :description, tag_list: [])
+  end
 end
