@@ -1,25 +1,37 @@
 <div class="container py-4">
   <div class="card-project-show">
-    <h1><%= @project.title %></h1>
-
+    <div class="title">
+      <h1><%= @project.title %></h1>
+    </div>
+    <div class="image-container">
     <!-- replace with project image when available -->
-    <%= cl_image_tag("hpqhwszy1g7izwulxx5w",
-      width: 400, height: 300, crop: :fill) %>
-
-    <% if @project.user.photo.attached? %>
-      <%= cl_image_tag @project.user.photo.key, class: "avatar" %>
-    <% else %>
-      <%= image_tag "default-avatar.jpg", class: "avatar" %>
-    <% end %>
-    <% @steps.each do |step| %>
-      <p><%= "#{step.ordinal} - #{step.description}" %></p>
-    <% end %>
+      <%= cl_image_tag "hpqhwszy1g7izwulxx5w", class: "img" %>
+    </div>
+    <div class="user-info">
+      <div class="created-by d-flex">
+        <div class="avatar">
+          <% if @project.user.photo.attached? %>
+            <%= cl_image_tag @project.user.photo.key, class: "avatar" %>
+          <% else %>
+            <%= image_tag "default-avatar.jpg", class: "avatar" %>
+          <% end %>
+        </div>
+        <div class="pl-3">
+          <p class="m-0">Created By</p>
+          <p class="m-0"><%= @project.user.username %></p>
+        </div>
+      </div>
       <%= simple_form_for [@project, @user_project] do |f| %>
-          <%= f.submit "Enroll", class: "btn btn-info"%>
+          <%= f.submit "Enroll", class: "btn btn-info btn-lg"%>
       <% end %>
-
+    </div>
+    <div class="steps">
+      <% @steps.each do |step| %>
+        <p><%= "#{step.ordinal} - #{step.description}" %></p>
+      <% end %>
+    </div>
       <!-- <div class="btn btn-primary">Enroll</div> -->
       <!-- <div class="btn btn-secondary">Enroll</div> -->
-    <p><%= link_to "Back to list", projects_path %></p>
-  </div>
+      <p class="p-3"><%= link_to "Back to list", projects_path %></p>
+   </div>
 </div>
