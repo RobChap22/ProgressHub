@@ -60,6 +60,9 @@ puts 'Creating projects...'
     description: Faker::Company.bs,
     tag_list: [keyword_array.sample, keyword_array2.sample]
   )
+  serch_word = proj[:title]
+  projpic = URI.open("https://source.unsplash.com/featured/?#{serch_word}")
+  proj.photo.attach(io: projpic, filename: "#{serch_word.split(' ').first}.jpg", content_type: "#{serch_word.split(' ').first}/jpg")
   ord = 1
   rand(3..6).times do
     ProjectStep.create!(
