@@ -6,12 +6,14 @@
 
 .card-index {
   background-color: white;
-  border-radius: 20px;
+  border-radius: 16px;
+  border: 2px solid $dark_blue1;
   // overflow: hidden;
   position: relative;
   height: 360px;
   display: flex;
   flex-direction: column;
+  transition: 0.2s;
 }
 
 .card-index h2 {
@@ -33,25 +35,28 @@
   object-fit: cover;
   height: 220px;
   width: 100%;
-  border-top-right-radius: 20px;
-  border-top-left-radius: 20px;
+  border-top-right-radius: 14px;
+  border-top-left-radius: 14px;
+  border-bottom: 2px solid $dark_blue1;
 }
 
 .card-index-footer {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding-bottom: 8px;
 }
 
 .card-tags {
   position: absolute;
-  bottom: 8px;
-  left: 8px;
-  width: 80%;
+  bottom: 10px;
+  right: 10px;
   span {
     background: $yellow;
     font-size: .7em;
     padding: 2px 4px;
     border-radius: 3px;
+    margin: 4px;
   }
   a {
     color: $dark-blue1;
@@ -78,9 +83,8 @@
 // Card hover
 
 .card-index:hover {
-  transform: translateY(-5px) scale(1.005) translateZ(0);
-  box-shadow: 0 24px 36px rgba(0,0,0,0.11),
-    0 24px 46px (rgba(220, 233, 255, 0.48));
+  transform: translateY(-5px);
+  box-shadow: 0 24px 36px rgba(0, 0, 0, 0.11), 0 24px 46px rgba(220, 233, 255, 0.48);
 }
 
 .card-index:hover .overlay {
@@ -110,17 +114,17 @@
   transition: color 0.3s ease-out;
 }
 
-.image-with-overlay > .card-index-overlay {
-  opacity: 0;
-  background-color: rgba(#DCE9FF, 0.3);
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  position: absolute;
-  transition: opacity 0.3s ease-in;
-}
+// .image-with-overlay > .card-index-overlay {
+//   opacity: 0;
+//   background-color: rgba(#DCE9FF, 0.3);
+//   width: 100%;
+//   height: 100%;
+//   top: 0;
+//   left: 0;
+//   z-index: 1;
+//   position: absolute;
+//   transition: opacity 0.3s ease-in;
+// }
 
 .card-index:hover .card-index-overlay {
   opacity: 1;
