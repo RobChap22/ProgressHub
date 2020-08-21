@@ -2,13 +2,15 @@
   <div class="tab-user-project-act-proj">
     <h1>Active Projects</h1>
     <% active_projects.each do |active_project| %>
-      <div class="card-proj-dashbord">
-        <%= cl_image_tag active_project.project.photo.key, alt: "alttext", width: 120, height: 120, crop: :thumb %>
-        <div class="card-proj-infos">
-          <h2><%= active_project.project.title %></h2>
-          <p><%= active_project.project.description %></p>
+      <%= link_to user_project_path(active_project) do %>
+        <div class="card-proj-dashbord">
+          <%= cl_image_tag active_project.project.photo.key, alt: "alttext", width: 120, height: 120, crop: :thumb %>
+          <div class="card-proj-infos">
+            <h2><%= active_project.project.title %></h2>
+            <p><%= active_project.project.description %></p>
+          </div>
         </div>
-      </div>
+      <% end  %>
     <% end %>
   </div>
 </div>
