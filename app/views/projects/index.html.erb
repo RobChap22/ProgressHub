@@ -4,7 +4,7 @@
       <%= link_to project_path(project) do %>
         <div class="card-index" >
           <div class="image-with-overlay">
-            <%= image_tag "https://img.delicious.com.au/5PiJMQy-/w759-h506-cfill/del/2015/12/cornetti-italian-croissants-24713-1.jpg", alt: "card-img", class: "card-index-img" %>
+            <%= image_tag project.photo, alt: "card-img", class: "card-index-img" %>
             <div class="card-index-overlay"></div>
           </div>
           <div class="box p-2">
