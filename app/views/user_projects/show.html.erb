@@ -17,6 +17,8 @@
       </div>
       <% @steps.each do |step| %>
         <div class="tab-pane fade p-5" id="nav-<%= step.ordinal %>" role="tabpanel" aria-labelledby="nav-<%= step.ordinal %>-tab">
+          <%= cl_image_tag step.photo.key %>
+          <h2><%= step.header %></h2>
           <p><%= step.description %></p>
         </div>
       <% end %>
