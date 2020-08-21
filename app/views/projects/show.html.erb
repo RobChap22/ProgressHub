@@ -1,11 +1,11 @@
 <div class="container py-4">
-  <div class="card-project-show">
+  <div class="card-project-show d-flex flex-column align-items-center">
     <div class="title">
       <h1><%= @project.title %></h1>
     </div>
     <div class="image-container">
     <!-- replace with project image when available -->
-      <%= cl_image_tag "hpqhwszy1g7izwulxx5w", class: "img" %>
+      <%= cl_image_tag @project.photo.key, class: "img" %>
     </div>
     <div class="user-info">
       <div class="created-by d-flex">
@@ -22,16 +22,10 @@
         </div>
       </div>
       <%= simple_form_for [@project, @user_project] do |f| %>
-          <%= f.submit "Enroll", class: "btn btn-info btn-lg"%>
+          <%= f.submit "Enroll", class: "btn landing-button btn-lg"%>
       <% end %>
     </div>
-    <div class="steps">
-      <% @steps.each do |step| %>
-        <p><%= "#{step.ordinal} - #{step.description}" %></p>
-      <% end %>
-    </div>
-      <!-- <div class="btn btn-primary">Enroll</div> -->
-      <!-- <div class="btn btn-secondary">Enroll</div> -->
-      <p class="p-3"><%= link_to "Back to list", projects_path %></p>
+    <div class="steps"><%= @project.description %></div>
+    <div class="footer btn landing-button"><%= link_to "Back", projects_path %></div>
    </div>
 </div>
