@@ -13,12 +13,17 @@
               <p><%= project.description %></p>
             </div>
             <div class="card-index-footer">
-              <% if project.user.photo.attached? %>
-                <%= cl_image_tag project.user.photo.key, class: "avatar" %>
-              <% else %>
-                <%= image_tag "default-avatar.jpg", class: "avatar" %>
-              <% end %>
-              <div><%= "By #{project.user.username}" %></div>
+                <% if project.user.photo.attached? %>
+                  <%= cl_image_tag project.user.photo.key, class: "avatar" %>
+                <% else %>
+                  <%= image_tag "default-avatar.jpg", class: "avatar" %>
+                <% end %>
+                <div><%= "By #{project.user.username}" %></div>
+              <div class="card-tags">
+                <% project.tag_list.each do |keyword| %>
+                  <span><%= keyword %></span>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>

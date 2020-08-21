@@ -7,6 +7,7 @@ verpic = URI.open('https://avatars0.githubusercontent.com/u/65526708?v=4')
 yanpic = URI.open('https://avatars1.githubusercontent.com/u/26819547?v=4')
 
 puts 'Deleting all projects...'
+UserProject.destroy_all
 Project.destroy_all
 puts "Cleaning users..."
 User.destroy_all
@@ -20,10 +21,10 @@ rob = User.create!(
 rob.photo.attach(io: robpic, filename: 'rob.jpeg', content_type: 'image/jpeg')
 
 ver = User.create!(
-    username: "Veronica",
-    email: "veronica@caramail.com",
-    password: "password"
-  )
+  username: "Veronica",
+  email: "veronica@caramail.com",
+  password: "password"
+)
 ver.photo.attach(io: yanpic, filename: 'ver.jpeg', content_type: 'image/jpeg')
 
 moe = User.create!(
@@ -47,6 +48,8 @@ end
 puts "Created #{User.count} users!"
 
 # Projects
+keyword_array = ["plant", "math", "logic", "art", "coding"]
+keyword_array2 = ["easy", "fun", "intense"]
 
 puts 'Creating projects...'
 @users = User.all
@@ -54,7 +57,8 @@ puts 'Creating projects...'
   proj = Project.create!(
     title: Faker::Company.industry,
     user: user,
-    description: Faker::Company.bs
+    description: Faker::Company.bs,
+    tag_list: [keyword_array.sample, keyword_array2.sample]
   )
   ord = 1
   rand(3..6).times do
