@@ -3,7 +3,7 @@
     <div class="nav nav-tabs flex-column tab-buttons-progresshub m-2" id="nav-tab" role="tablist" aria-orientation="vertical">
       <a class="nav-link active mb-1" id="nav-overview-tab" data-toggle="tab" href="#nav-overview" role="tab" aria-controls="nav-overview" aria-selected="true">Overview</a>
       <% @steps.each do |step| %>
-        <a class="nav-link mb-1" id="nav-<%= step.ordinal %>-tab" data-toggle="tab" href="#nav-<%= step.ordinal %>" role="tab" aria-controls="nav-<%= step.ordinal %>" aria-selected="false"><%= "Step #{step.ordinal}" %></a>
+        <a class="nav-link mb-1" id="tab-<%= step.ordinal %>" data-toggle="tab" href="#nav-<%= step.ordinal %>" role="tab" aria-controls="nav-<%= step.ordinal %>" aria-selected="false"><%= "Step #{step.ordinal}" %></a>
       <% end %>
       <% if current_user == @user_project.project.user %>
         <a class="nav-link mb-1" id="add-step-tab" data-toggle="tab" href="#nav-new-step" role="tab" aria-controls="nav-overview">Add step</a>
@@ -23,6 +23,17 @@
           <%= cl_image_tag (step.photo.key) if step.photo.attached? %>
           <h2><%= step.header %></h2>
           <p><%= step.description %></p>
+          <% if step. ordinal == @steps.count %>
+            <%= simple_form_for @user_project do |f| %>
+              <%= f.input :completed, as: :hidden, input_html: {checked: true} %>
+              <%= f.submit "Finish Project", class: "btn landing-button btn-lg"%>
+            <% end %>
+          <% else %>
+            <%= simple_form_for @user_project, remote: true, html: { 'data-next-tab': "tab-#{step.ordinal + 1}" } do |f| %>
+              <%= f.input :last_completed, as: :hidden, input_html: {value: step.ordinal} %>
+              <%= f.submit "Complete!", class: "btn landing-button btn-lg"%>
+            <% end %>
+          <% end %>
         </div>
       <% end %>
       <div class="tab-pane fade show" id="nav-new-step" role="tabpanel" aria-labelledby="nav-overview-tab">

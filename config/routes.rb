@@ -7,5 +7,5 @@ Rails.application.routes.draw do
     resources :project_steps, only: [:create, :index]
     resources :user_projects, only: [:create, :show]
   end
-  resources :user_projects, only: [:show]
+  resources :user_projects, only: [:show, :update]
 end
