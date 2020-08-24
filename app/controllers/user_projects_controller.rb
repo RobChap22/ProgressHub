@@ -1,6 +1,7 @@
 class UserProjectsController < ApplicationController
   before_action :set_user_project, only: [:show, :update]
 
+
   def create
     @project = Project.find(params[:project_id])
     @user_project = UserProject.new
@@ -36,5 +37,8 @@ class UserProjectsController < ApplicationController
   def set_user_project
     @user_project = UserProject.find(params[:id])
     authorize @user_project
+    @steps = @user_project.project.project_steps.order(:ordinal)
+    @project = @user_project.project
+    @project_step = ProjectStep.new()
   end
 end

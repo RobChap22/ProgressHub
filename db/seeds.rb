@@ -58,7 +58,8 @@ puts 'Creating projects...'
     title: Faker::Company.industry,
     user: user,
     description: Faker::Company.bs,
-    tag_list: [keyword_array.sample, keyword_array2.sample]
+    tag_list: [keyword_array.sample, keyword_array2.sample],
+    published: true
   )
   serch_word = proj[:title]
   projpic = URI.open("https://source.unsplash.com/featured/?#{serch_word}")
@@ -78,6 +79,7 @@ end
 basil = Project.create!(
   title: "Grow Basil",
   user: rob,
+  published: true,
   description: "Basil is easy to grow, and transforms ordinary meals into culinary treasures! This project tells you how to plant and harvest basil."
 )
 baspic = URI.open('https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/266425_2200-1200x628.jpg')
