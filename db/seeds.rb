@@ -78,7 +78,7 @@ end
 # BASIL EXAMPLE
 basil = Project.create!(
   title: "Grow Basil",
-  user: rob,
+  user: ver,
   published: true,
   description: "Basil is easy to grow, and transforms ordinary meals into culinary treasures! This project tells you how to plant and harvest basil."
 )
