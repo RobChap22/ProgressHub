@@ -1,4 +1,18 @@
+// profile
+.profile-dash, .skill-tags {
+  background-color: white;
+  padding: 16px;
+  margin: 16px;
+  border-radius: 16px;
+  border: 2px solid $dark_blue1;
+}
+.photo-dashbord {
+  border-radius: 5px;
+  width: 150px;
+}
 
+
+// projects
 .user-project-dash {
   justify-content: space-evenly;
 }
@@ -45,3 +59,4 @@
 .card-proj-dashbord .card-proj-infos {
   padding: 16px;
 }
+
