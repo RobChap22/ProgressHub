@@ -25,10 +25,11 @@ require("channels")
 // External imports
 import "bootstrap";
 
+
 // Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
+import { updateAndProgress } from '../components/update_user_project_form';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  // initSelect2();
+  updateAndProgress();
 });
