@@ -5,9 +5,11 @@
       <%= link_to user_project_path(active_project) do %>
         <div class="card-proj-dashbord">
           <%= cl_image_tag active_project.project.photo.key, alt: "alttext", width: 120, height: 120, crop: :thumb %>
-          <div class="card-proj-infos">
+          <div class="card-proj-infos w-100">
             <h2><%= active_project.project.title %></h2>
-            <p><%= active_project.project.description %></p>
+            <div class="progress">
+              <div class="progress-bar bg-info" role="progressbar" style="width: <%= active_project.percent_completed %>%" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
           </div>
         </div>
       <% end  %>
