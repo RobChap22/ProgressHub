@@ -5,6 +5,9 @@
       <% @steps.each do |step| %>
         <a class="nav-link mb-1" id="nav-<%= step.ordinal %>-tab" data-toggle="tab" href="#nav-<%= step.ordinal %>" role="tab" aria-controls="nav-<%= step.ordinal %>" aria-selected="false"><%= "Step #{step.ordinal}" %></a>
       <% end %>
+      <% if current_user == @user_project.project.user %>
+        <a class="nav-link mb-1" id="add-step-tab" data-toggle="tab" href="#nav-new-step" role="tab" aria-controls="nav-overview">Add step</a>
+      <% end %>
     </div>
   </div>
   <div class="col-6">
@@ -17,17 +20,32 @@
       </div>
       <% @steps.each do |step| %>
         <div class="tab-pane fade p-5" id="nav-<%= step.ordinal %>" role="tabpanel" aria-labelledby="nav-<%= step.ordinal %>-tab">
-          <%= cl_image_tag step.photo.key %>
+          <%= cl_image_tag (step.photo.key) if step.photo.attached? %>
           <h2><%= step.header %></h2>
           <p><%= step.description %></p>
         </div>
       <% end %>
+      <div class="tab-pane fade show" id="nav-new-step" role="tabpanel" aria-labelledby="nav-overview-tab">
+        <div class="tab-user-project-overview">
+          <h1>New form here</h1>
+          <%= simple_form_for [@project, @project_step] do |f| %>
+            <%= f.input :header %>
+            <%= f.input :description %>
+            <%= f.input :photo, as: :file %>
+            <%= f.submit "Add this step", class: "btn landing-button btn-lg" %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
+  <div class="col-2">
+    <% if current_user == @user_project.project.user && !@user_project.project.published? %>
+      <%= simple_form_for @project do |f| %>
+        <%= f.input :published, :as => :hidden, :input_html => { :value => true } %>
+        <%= f.submit "Publish", class: "btn landing-button btn-lg" %>
+      <% end %>
+    <% end %>
+  </div>
 </div>
-
-
-
-
 <!--
 <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a> -->

@@ -1,4 +1,5 @@
 class UserProjectsController < ApplicationController
+
   def create
     @project = Project.find(params[:project_id])
     @user_project = UserProject.new()
@@ -16,5 +17,7 @@ class UserProjectsController < ApplicationController
     @user_project = UserProject.find(params[:id])
     authorize @user_project
     @steps = @user_project.project.project_steps.order(:ordinal)
+    @project = @user_project.project
+    @project_step = ProjectStep.new()
   end
 end
