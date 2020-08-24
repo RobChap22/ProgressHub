@@ -30,7 +30,7 @@ class UserProjectsController < ApplicationController
   private
 
   def user_project_params
-    params.require(:user_project).permit(:last_completed)
+    params.require(:user_project).permit(:last_completed, :completed)
   end
 
   def set_user_project
