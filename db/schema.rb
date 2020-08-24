@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_24_014954) do
+ActiveRecord::Schema.define(version: 2020_08_24_120433) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,13 @@ ActiveRecord::Schema.define(version: 2020_08_24_014954) do
     t.string "description"
     t.boolean "published", default: false
     t.index ["user_id"], name: "index_projects_on_user_id"
+  end
+
+  create_table "quotes", force: :cascade do |t|
+    t.string "content"
+    t.string "person"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|
