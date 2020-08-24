@@ -1,6 +1,7 @@
-<div class="row">
+
+<div class="row dash-contents">
   <div class="col-2">
-    <div class="nav nav-tabs flex-column tab-buttons-progresshub m-2" id="nav-tab" role="tablist" aria-orientation="vertical">
+    <div class="nav nav-tabs flex-column tab-buttons-progresshub m-1" id="nav-tab" role="tablist" aria-orientation="vertical">
       <a class="nav-link active mb-1" id="nav-act-proj-tab" data-toggle="tab" href="#nav-act-proj" role="tab" aria-controls="nav-act-proj" aria-selected="true">Active</a>
       <a class="nav-link mb-1" id="nav-achieved-tab" data-toggle="tab" href="#nav-achieved" role="tab" aria-controls="nav-achieved" aria-selected="false">Achieved</a>
       <a class="nav-link mb-1" id="nav-created-tab" data-toggle="tab" href="#nav-created" role="tab" aria-controls="nav-created" aria-selected="false">Created</a>
@@ -13,6 +14,18 @@
       <%= render 'shared/tab_achieved', finished_projects: @finished_projects %>
       <%= render 'shared/tab_created' %>
       <%= render 'shared/tab_wishlist' %>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="profile-dash">
+       <%= cl_image_tag current_user.photo.key, class: "photo-dashbord" %>
+       <h2><%= current_user.username %></h2>
+       Member since <%= current_user.created_at %>
+       <p>Achieved <%= @finished_projects.count %> projects</p>
+       <p>Working on <%= @active_projects.count %> projects </p>
+    </div>
+    <div class="skill-tags">
+      skill tags here
     </div>
   </div>
 </div>
