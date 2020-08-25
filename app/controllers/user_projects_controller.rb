@@ -17,6 +17,7 @@ class UserProjectsController < ApplicationController
 
   def show
     @steps = @user_project.project.project_steps.order(:ordinal)
+    @message = Message.new
   end
 
   def update
