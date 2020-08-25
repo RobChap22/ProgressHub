@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_08_25_013604) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,6 +35,22 @@ ActiveRecord::Schema.define(version: 2020_08_25_013604) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "chatrooms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.bigint "chatroom_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "project_steps", force: :cascade do |t|
@@ -59,8 +76,6 @@ ActiveRecord::Schema.define(version: 2020_08_25_013604) do
   create_table "quotes", force: :cascade do |t|
     t.string "content"
     t.string "person"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -126,6 +141,8 @@ ActiveRecord::Schema.define(version: 2020_08_25_013604) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "messages", "chatrooms"
+  add_foreign_key "messages", "users"
   add_foreign_key "project_steps", "projects"
   add_foreign_key "projects", "users"
   add_foreign_key "reviews", "projects"

@@ -152,5 +152,11 @@ Project.all.each do |project|
 end
 puts "created #{Review.count} reviews"
 
+# CHATROOM
+puts 'Deleting all chatrooms'
+Chatroom.destroy_all
+puts 'Creating chatrooms'
+Chatroom.create!(name: 'community')
+puts "Created #{Chatroom.count} chatrooms."
 
 puts "Seed complete."
