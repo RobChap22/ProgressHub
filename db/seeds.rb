@@ -8,8 +8,6 @@ verpic = URI.open('https://avatars0.githubusercontent.com/u/65526708?v=4')
 yanpic = URI.open('https://avatars1.githubusercontent.com/u/26819547?v=4')
 
 # DELETIONS
-puts 'Deleting all chatrooms'
-Chatroom.destroy_all
 puts 'Deleting all projects...'
 UserProject.destroy_all
 Project.destroy_all
@@ -160,9 +158,5 @@ Project.all.each do |project|
 end
 puts "created #{Review.count} reviews"
 
-# CHATROOM
-puts 'Creating chatrooms'
-Chatroom.create!(name: 'community')
-puts "Created #{Chatroom.count} chatrooms."
 
 puts "Seed complete."
