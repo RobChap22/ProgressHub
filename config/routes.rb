@@ -8,4 +8,7 @@ Rails.application.routes.draw do
     resources :user_projects, only: [:create, :show]
   end
   resources :user_projects, only: [:show, :update]
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
 end
