@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_25_012528) do
+ActiveRecord::Schema.define(version: 2020_08_25_013604) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +78,17 @@ ActiveRecord::Schema.define(version: 2020_08_25_012528) do
     t.string "person"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.integer "rating"
+    t.bigint "user_id", null: false
+    t.bigint "project_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_reviews_on_project_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "taggings", id: :serial, force: :cascade do |t|
     t.integer "tag_id"
     t.string "taggable_type"
@@ -133,6 +145,8 @@ ActiveRecord::Schema.define(version: 2020_08_25_012528) do
   add_foreign_key "messages", "users"
   add_foreign_key "project_steps", "projects"
   add_foreign_key "projects", "users"
+  add_foreign_key "reviews", "projects"
+  add_foreign_key "reviews", "users"
   add_foreign_key "taggings", "tags"
   add_foreign_key "user_projects", "projects"
   add_foreign_key "user_projects", "users"
