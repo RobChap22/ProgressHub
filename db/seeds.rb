@@ -5,6 +5,7 @@ moepic = URI.open('https://avatars1.githubusercontent.com/u/64414386?v=4')
 robpic = URI.open('https://avatars2.githubusercontent.com/u/66347766?v=4')
 verpic = URI.open('https://avatars0.githubusercontent.com/u/65526708?v=4')
 yanpic = URI.open('https://avatars1.githubusercontent.com/u/26819547?v=4')
+
 puts 'Deleting all reviews...'
 Review.destroy_all
 puts 'Deleting all user_projects and projects...'
@@ -12,6 +13,8 @@ UserProject.destroy_all
 Project.destroy_all
 puts "Cleaning users..."
 User.destroy_all
+
+# USERS
 puts 'Creating users...'
 rob = User.create!(
   username: "Rob",
@@ -41,6 +44,7 @@ moe.photo.attach(io: moepic, filename: 'moe.jpeg', content_type: 'image/jpeg')
   )
 end
 puts "Created #{User.count} users!"
+
 # Projects
 keyword_array = ["plant", "math", "logic", "art", "coding"]
 keyword_array2 = ["easy", "fun", "intense"]
@@ -67,6 +71,7 @@ puts 'Creating projects...'
     ord += 1
   end
 end
+
 # BASIL EXAMPLE
 basil = Project.create!(
   title: "Grow Basil",

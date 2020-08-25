@@ -1,0 +1,15 @@
+<div id="messages" data-chatroom-id="<%= project.id %>">
+  <% project.messages.each do |message| %>
+    <div class="message-container" id="message-<%= message.id %>">
+      <i class="author">
+        <span><%= message.user.username %></span>
+        <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+      </i>
+      <p><%= message.content %></p>
+    </div>
+  <% end %>
+</div>
+<%= simple_form_for [ project, @message ], remote: true do |f| %>
+  <%= f.input :content, label: false, placeholder: "Message ##{project.title}" %>
+  <%= f.submit "Send", class: "btn landing-button btn-lg"%>
+<% end %>
