@@ -6,9 +6,7 @@ Rails.application.routes.draw do
   resources :projects, only: [:new, :create, :update, :index, :show] do
     resources :project_steps, only: [:create, :index]
     resources :user_projects, only: [:create, :show]
-  end
-  resources :user_projects, only: [:show, :update]
-  resources :chatrooms, only: :show do
     resources :messages, only: :create
   end
+  resources :user_projects, only: [:show, :update]
 end
