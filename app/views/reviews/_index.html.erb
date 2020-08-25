@@ -1,0 +1,11 @@
+<h2>Reviews</h2>
+<% reviews.each do |review| %>
+  <div class="card-review mx-4">
+    <%= review.content %>
+    <!-- <%= review.rating %> -->
+    <%= review.user.username %>
+    <%# if review.photo.attached? %>
+    <%#= cl_image_tag review.photo.key, alt: "review-photo" %>
+    <%# end %>
+  </div>
+<% end %>

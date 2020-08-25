@@ -1,4 +1,3 @@
-
 require 'faker'
 require 'open-uri'
 require 'json'
@@ -6,7 +5,9 @@ moepic = URI.open('https://avatars1.githubusercontent.com/u/64414386?v=4')
 robpic = URI.open('https://avatars2.githubusercontent.com/u/66347766?v=4')
 verpic = URI.open('https://avatars0.githubusercontent.com/u/65526708?v=4')
 yanpic = URI.open('https://avatars1.githubusercontent.com/u/26819547?v=4')
-puts 'Deleting all projects...'
+puts 'Deleting all reviews...'
+Review.destroy_all
+puts 'Deleting all user_projects and projects...'
 UserProject.destroy_all
 Project.destroy_all
 puts "Cleaning users..."
@@ -134,20 +135,18 @@ end
 puts "created #{Quote.count} quotes"
 
 # REVIEW
-puts 'Deleting all reviews...'
-Review.destroy_all
 puts 'Creating reviews...'
 
 Project.all.each do |project|
   rand(5).times do
-    Review.create!(
+    review = Review.create!(
       user: User.where.not(id: project.user.id).sample,
       content: Faker::Restaurant.review,
       rating: rand(1..5),
       project: project
     )
     review_photo = URI.open("https://source.unsplash.com/featured/?#{project.title}")
-    project.photo.attach(io: review_photo, filename: "review_#{project.title.split(' ').first}.jpg", content_type: 'image/jpg') if rand(4).even?
+    review.photo.attach(io: review_photo, filename: "review_#{project.title.split(' ').first}.jpg", content_type: 'image/jpg') if rand(5).even?
   end
 end
 puts "created #{Review.count} reviews"
