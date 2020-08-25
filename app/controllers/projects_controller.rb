@@ -27,12 +27,23 @@ class ProjectsController < ApplicationController
   end
 
   def index
-    @projects = policy_scope(Project)
+    if params[:query].present?
+      relevant_projects = []
+      relevant_projects << policy_scope(Project).tagged_with(params[:query])
+      relevant_projects << policy_scope(Project).where('title ILIKE :query OR description ILIKE :query', query: "%#{params[:query]}%")
+      # relevant_projects << policy_scope(Project).where('description ILIKE ?', "%#{params[:query]}%")
+      @projects = Project.from("(#{relevant_projects.map(&:to_sql).join(' UNION ')}) AS projects")
+    else
+      @projects = policy_scope(Project)
+    end
   end
 
   def show
     @steps = @project.project_steps.order(:ordinal)
     @user_project = UserProject.new()
+  end
+
+  def tagged
   end
 
   private
