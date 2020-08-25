@@ -1,17 +1,16 @@
+
 require 'faker'
 require 'open-uri'
-
+require 'json'
 moepic = URI.open('https://avatars1.githubusercontent.com/u/64414386?v=4')
 robpic = URI.open('https://avatars2.githubusercontent.com/u/66347766?v=4')
 verpic = URI.open('https://avatars0.githubusercontent.com/u/65526708?v=4')
 yanpic = URI.open('https://avatars1.githubusercontent.com/u/26819547?v=4')
-
 puts 'Deleting all projects...'
 UserProject.destroy_all
 Project.destroy_all
 puts "Cleaning users..."
 User.destroy_all
-
 puts 'Creating users...'
 rob = User.create!(
   username: "Rob",
@@ -19,38 +18,31 @@ rob = User.create!(
   password: "password"
 )
 rob.photo.attach(io: robpic, filename: 'rob.jpeg', content_type: 'image/jpeg')
-
 ver = User.create!(
   username: "Veronica",
   email: "veronica@caramail.com",
   password: "password"
 )
 ver.photo.attach(io: yanpic, filename: 'ver.jpeg', content_type: 'image/jpeg')
-
 moe = User.create!(
   username: "Moe",
   email: "moe@caramail.com",
   password: "password"
 )
 moe.photo.attach(io: moepic, filename: 'moe.jpeg', content_type: 'image/jpeg')
-
 5.times do
   username = Faker::Name.first_name
   next if User.find_by(username: username)
-
   user = User.create!(
     username: username,
     email: Faker::Internet.email,
     password: "password"
   )
 end
-
 puts "Created #{User.count} users!"
-
 # Projects
 keyword_array = ["plant", "math", "logic", "art", "coding"]
 keyword_array2 = ["easy", "fun", "intense"]
-
 puts 'Creating projects...'
 @users = User.all
 @users.each do |user|
@@ -74,7 +66,6 @@ puts 'Creating projects...'
     ord += 1
   end
 end
-
 # BASIL EXAMPLE
 basil = Project.create!(
   title: "Grow Basil",
@@ -84,7 +75,6 @@ basil = Project.create!(
 )
 baspic = URI.open('https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/266425_2200-1200x628.jpg')
 basil.photo.attach(io: baspic, filename: 'basil.jpg', content_type: 'image/jpg')
-
 s1 = ProjectStep.create!(
   project: basil,
   ordinal: 1,
@@ -93,7 +83,6 @@ s1 = ProjectStep.create!(
 )
 pic1 = URI.open('https://images-na.ssl-images-amazon.com/images/I/51NzBAQS8DL.jpg')
 s1.photo.attach(io: pic1, filename: 'seeds.jpg', content_type: 'image/jpg')
-
 s2 = ProjectStep.create!(
   project: basil,
   ordinal: 2,
@@ -102,7 +91,6 @@ s2 = ProjectStep.create!(
 )
 pic2 = URI.open('https://cdn.ecommercedns.uk/files/5/224895/9/8050089/little-leggy-plant-pot-4.jpg')
 s2.photo.attach(io: pic2, filename: 'pot.jpg', content_type: 'image/jpg')
-
 s3 = ProjectStep.create!(
   project: basil,
   ordinal: 3,
@@ -111,7 +99,6 @@ s3 = ProjectStep.create!(
 )
 pic3 = URI.open('https://img2.lrgarden.com/feed_pic/87/41/1000318039_1000013406_1503392617.jpg')
 s3.photo.attach(io: pic3, filename: 'plant.jpg', content_type: 'image/jpg')
-
 s4 = ProjectStep.create!(
   project: basil,
   ordinal: 4,
@@ -120,7 +107,6 @@ s4 = ProjectStep.create!(
 )
 pic4 = URI.open('https://steptohealth.com/wp-content/uploads/2019/05/transplanting.jpg')
 s4.photo.attach(io: pic4, filename: 'replant.jpg', content_type: 'image/jpg')
-
 s5 = ProjectStep.create!(
   project: basil,
   ordinal: 5,
@@ -129,6 +115,21 @@ s5 = ProjectStep.create!(
 )
 pic5 = URI.open('https://i.ytimg.com/vi/PrLWG_w2GHg/maxresdefault.jpg')
 s5.photo.attach(io: pic5, filename: 'trim.jpg', content_type: 'image/jpg')
-
 puts "#{Project.count} projects created."
+
+# QUOTE
+puts 'Deleting all quotes...'
+Quote.destroy_all
+puts 'Creating quotes...'
+quotes_url = "https://gist.githubusercontent.com/nasrulhazim/54b659e43b1035215cd0ba1d4577ee80/raw/e3c6895ce42069f0ee7e991229064f167fe8ccdc/quotes.json"
+buffer = open(quotes_url).read
+quote_hashes = JSON.parse(buffer)["quotes"]
+# results -- array of hashes
+quote_hashes.each do |quote_hash|
+  Quote.create!(
+    content: quote_hash["quote"],
+    person: quote_hash["author"]
+  )
+end
+puts "created #{Quote.count} quotes"
 puts "Seed complete."
