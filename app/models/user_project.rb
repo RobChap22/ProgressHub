@@ -6,4 +6,8 @@ class UserProject < ApplicationRecord
   def percent_completed
     (last_completed.to_f / project_steps.count) * 100
   end
+
+  def next_step_header
+    project.project_steps.find_by(ordinal: last_completed + 1)&.header
+  end
 end
