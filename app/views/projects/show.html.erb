@@ -4,7 +4,7 @@
       <h1><%= @project.title %></h1>
     </div>
     <div class="image-container">
-    <!-- replace with project image when available -->
+      <!-- replace with project image when available -->
       <%= cl_image_tag @project.photo.key, class: "img" %>
     </div>
     <div class="user-info">
@@ -22,10 +22,20 @@
         </div>
       </div>
       <%= simple_form_for [@project, @user_project] do |f| %>
-          <%= f.submit "Enroll", class: "btn landing-button btn-lg"%>
+        <%= f.submit "Enroll", class: "btn landing-button btn-lg"%>
       <% end %>
     </div>
     <div class="steps"><%= @project.description %></div>
     <div class="footer btn landing-button"><%= link_to "Back", projects_path %></div>
-   </div>
+  </div>
+  <div class="reviews">
+    <div class="card-review">
+      <% @reviews.each do |review| %>
+        <%= review.content %>
+        <%= review.rating %>
+        <%= review.user.username %>
+        <%= review.photo.key if review.photo.attached? %>
+      <% end %>
+    </div>
+  </div>
 </div>
