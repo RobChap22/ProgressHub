@@ -41,6 +41,7 @@ class ProjectsController < ApplicationController
   def show
     @steps = @project.project_steps.order(:ordinal)
     @user_project = UserProject.new()
+    @reviews = Review.where(project: @project)
   end
 
   def tagged

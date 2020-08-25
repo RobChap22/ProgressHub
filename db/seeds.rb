@@ -132,7 +132,7 @@ puts 'Creating quotes...'
 quotes_url = "https://gist.githubusercontent.com/nasrulhazim/54b659e43b1035215cd0ba1d4577ee80/raw/e3c6895ce42069f0ee7e991229064f167fe8ccdc/quotes.json"
 buffer = open(quotes_url).read
 quote_hashes = JSON.parse(buffer)["quotes"]
-# results -- array of hashes
+# quote_hashes -- array of hashes
 quote_hashes.each do |quote_hash|
   Quote.create!(
     content: quote_hash["quote"],
@@ -140,6 +140,25 @@ quote_hashes.each do |quote_hash|
   )
 end
 puts "created #{Quote.count} quotes"
+
+# REVIEW
+puts 'Deleting all reviews...'
+Review.destroy_all
+puts 'Creating reviews...'
+
+Project.all.each do |project|
+  rand(5).times do
+    Review.create!(
+      user: User.where.not(id: project.user.id).sample,
+      content: Faker::Restaurant.review,
+      rating: rand(1..5),
+      project: project
+    )
+    review_photo = URI.open("https://source.unsplash.com/featured/?#{project.title}")
+    project.photo.attach(io: review_photo, filename: "review_#{project.title.split(' ').first}.jpg", content_type: 'image/jpg') if rand(4).even?
+  end
+end
+puts "created #{Review.count} reviews"
 
 # CHATROOM
 puts 'Creating chatrooms'
