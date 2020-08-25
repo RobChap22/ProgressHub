@@ -1,41 +1,37 @@
 <div class="container py-4">
-  <div class="card-project-show d-flex flex-column align-items-center">
-    <div class="title">
-      <h1><%= @project.title %></h1>
-    </div>
-    <div class="image-container">
-      <!-- replace with project image when available -->
-      <%= cl_image_tag @project.photo.key, class: "img" %>
-    </div>
-    <div class="user-info">
-      <div class="created-by d-flex">
-        <div class="avatar">
-          <% if @project.user.photo.attached? %>
-            <%= cl_image_tag @project.user.photo.key, class: "avatar" %>
-          <% else %>
-            <%= image_tag "default-avatar.jpg", class: "avatar" %>
-          <% end %>
-        </div>
-        <div class="pl-3">
-          <p class="m-0">Created By</p>
-          <p class="m-0"><%= @project.user.username %></p>
-        </div>
+  <div class="row">
+    <!-- <div class="space col-1"></div> -->
+    <div class="card-project-show col-8 align-items-center">
+      <div class="title">
+        <h1><%= @project.title %></h1>
       </div>
-      <%= simple_form_for [@project, @user_project] do |f| %>
-        <%= f.submit "Enroll", class: "btn landing-button btn-lg"%>
-      <% end %>
+      <div class="image-container">
+        <!-- replace with project image when available -->
+        <%= cl_image_tag @project.photo.key, class: "img" %>
+      </div>
+      <div class="user-info">
+        <div class="created-by d-flex">
+          <div class="avatar">
+            <% if @project.user.photo.attached? %>
+              <%= cl_image_tag @project.user.photo.key, class: "avatar" %>
+            <% else %>
+              <%= image_tag "default-avatar.jpg", class: "avatar" %>
+            <% end %>
+          </div>
+          <div class="pl-3">
+            <p class="m-0">Created By</p>
+            <p class="m-0"><%= @project.user.username %></p>
+          </div>
+        </div>
+        <%= simple_form_for [@project, @user_project] do |f| %>
+          <%= f.submit "Enroll", class: "btn landing-button btn-lg"%>
+        <% end %>
+      </div>
+      <div class="steps"><%= @project.description %></div>
+      <div class="d-flex"><%= link_to "Back", projects_path, class: "btn landing-button" %></div>
     </div>
-    <div class="steps"><%= @project.description %></div>
-    <div class="footer btn landing-button"><%= link_to "Back", projects_path %></div>
-  </div>
-  <div class="reviews">
-    <div class="card-review">
-      <% @reviews.each do |review| %>
-        <%= review.content %>
-        <%= review.rating %>
-        <%= review.user.username %>
-        <%= review.photo.key if review.photo.attached? %>
-      <% end %>
+    <div class="reviews col-4">
+      <%= render 'reviews/index', reviews: @reviews %>
     </div>
   </div>
 </div>
