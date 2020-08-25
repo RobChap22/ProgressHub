@@ -132,4 +132,12 @@ quote_hashes.each do |quote_hash|
   )
 end
 puts "created #{Quote.count} quotes"
+
+# CHATROOM
+puts 'Deleting all chatrooms'
+Chatroom.destroy_all
+puts 'Creating chatrooms'
+Chatroom.create!(name: 'community')
+puts "Created #{Chatroom.count} chatrooms."
+
 puts "Seed complete."
