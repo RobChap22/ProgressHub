@@ -5,11 +5,14 @@
         <div class="card-proj-dashbord">
           <%= cl_image_tag active_project.project.photo.key, alt: "alttext", width: 120, height: 120, crop: :thumb %>
           <div class="card-proj-infos w-100">
-            <div class="proj-info-text d-flex">
-              <div><h2><%= active_project.project.title %></h2></div>
-              <div class="ml-5"><p>Next step: <%= active_project.next_step_header %></p></div>
+            <div class="proj-info-text">
+              <h2><%= active_project.project.title %></h2>
+              <div class="d-flex justify-content-between">
+                <div><p><strong><%= active_project.last_completed %> / <%= active_project.project.project_steps.count %> steps completed</strong></p></div>
+                <div><p>Next step: <%= active_project.next_step_header %></p></div>
+              </div>
             </div>
-            <div class="progress mt-4">
+            <div class="progress mt-2">
               <div class="progress-bar bg-info" role="progressbar" style="width: <%= active_project.percent_completed %>%" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
           </div>
