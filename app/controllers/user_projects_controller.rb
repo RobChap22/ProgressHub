@@ -1,7 +1,6 @@
 class UserProjectsController < ApplicationController
   before_action :set_user_project, only: [:show, :update]
 
-
   def create
     @project = Project.find(params[:project_id])
     @user_project = UserProject.new
