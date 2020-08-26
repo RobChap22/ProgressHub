@@ -24,7 +24,7 @@
       Working on <%= @active_projects.count %> projects <br>
     </div>
     <div class="skill-tags">
-      skill tags here
+      <%= pie_chart @tag_hash %>
     </div>
     <div class="quote">
       <h3>"<%= @quote.content %>"</h3>
