@@ -46,7 +46,7 @@ end
 puts "Created #{User.count} users!"
 
 # Projects
-keyword_array = ["plant", "math", "logic", "art", "coding"]
+keyword_array = ["creative", "tech", "practical", "academic", "lifestyle", "social"]
 keyword_array2 = ["easy", "fun", "intense", "moderate"]
 puts 'Creating projects...'
 @users = User.all

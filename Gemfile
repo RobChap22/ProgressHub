@@ -28,6 +28,7 @@ gem 'pundit'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.12.0'
 gem 'acts-as-taggable-on', '~> 6.0'
+gem "chartkick"
 
 
 # Use Active Storage variant
