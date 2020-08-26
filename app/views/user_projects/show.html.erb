@@ -53,7 +53,7 @@
     <% if current_user == @user_project.project.user && !@user_project.project.published? %>
       <%= simple_form_for @project do |f| %>
         <%= f.input :published, :as => :hidden, :input_html => { :value => true } %>
-        <%= f.submit "Publish", class: "btn landing-button btn-lg" %>
+        <%= f.submit "Publish", method: post, class: "btn landing-button btn-lg" %>
       <% end %>
     <% else %>
       <%= render 'chatrooms/show', project: @user_project.project %>
