@@ -1,0 +1,28 @@
+<div class="tab-pane fade p-5" id="nav-create" role="tabpanel" aria-labelledby="nav-create-tab">
+  <h1>Drafts</h1>
+  <% projects_drafts.each do |project_draft| %>
+    <%= link_to user_project_path(project_draft) do %>
+      <div class="card-proj-dashbord">
+        <%= cl_image_tag project_draft.project.photo.key, alt: "alttext", width: 120, height: 120, crop: :thumb %>
+        <div class="card-proj-infos w-100">
+          <div class="proj-info-text">
+            <h2><%= project_draft.project.title %></h2>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+  <h1>Projects you created</h1>
+  <% projects_published.each do |project_published| %>
+    <%= link_to user_project_path(project_published) do %>
+      <div class="card-proj-dashbord">
+        <%= cl_image_tag project_published.project.photo.key, alt: "alttext", width: 120, height: 120, crop: :thumb %>
+        <div class="card-proj-infos w-100">
+          <div class="proj-info-text">
+            <h2><%= project_published.project.title %></h2>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

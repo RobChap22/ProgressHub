@@ -7,4 +7,12 @@ class Project < ApplicationRecord
   has_many :messages, dependent: :destroy
   validates :title, presence: true
   acts_as_taggable_on :tags
+
+  after_create :create_user_project_for_creator
+
+  private
+
+  def create_user_project_for_creator
+    UserProject.create(user: user, project: self)
+  end
 end

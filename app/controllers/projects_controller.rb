@@ -10,8 +10,8 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.user = current_user
     authorize @project
-    @user_project = UserProject.create(user: current_user, project: @project)
     if @project.save
+      @user_project = UserProject.find_by(user: current_user, project: @project)
       redirect_to user_project_path(@user_project)
     else
       render :new

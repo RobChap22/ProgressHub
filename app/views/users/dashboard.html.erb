@@ -3,7 +3,7 @@
     <div class="nav nav-tabs flex-column tab-buttons-progresshub m-1" id="nav-tab" role="tablist" aria-orientation="vertical">
       <a class="nav-link active mb-1" id="nav-act-proj-tab" data-toggle="tab" href="#nav-act-proj" role="tab" aria-controls="nav-act-proj" aria-selected="true">Active</a>
       <a class="nav-link mb-1" id="nav-achieved-tab" data-toggle="tab" href="#nav-achieved" role="tab" aria-controls="nav-achieved" aria-selected="false">Achieved</a>
-      <a class="nav-link mb-1" id="nav-created-tab" data-toggle="tab" href="#nav-created" role="tab" aria-controls="nav-created" aria-selected="false">Created</a>
+      <a class="nav-link mb-1" id="nav-create-tab" data-toggle="tab" href="#nav-create" role="tab" aria-controls="nav-create" aria-selected="false">Create</a>
       <a class="nav-link mb-1" id="nav-wishlist-tab" data-toggle="tab" href="#nav-wishlist" role="tab" aria-controls="nav-wishlist" aria-selected="false">Wishlist</a>
     </div>
   </div>
@@ -11,7 +11,7 @@
     <div class="tab-content tab-contents-dashboard" id="nav-tabContent">
       <%= render 'shared/tab_active', active_projects: @active_projects %>
       <%= render 'shared/tab_achieved', finished_projects: @finished_projects %>
-      <%= render 'shared/tab_created' %>
+      <%= render 'shared/tab_create', projects_published: @projects_published, projects_drafts: @projects_drafts %>
       <%= render 'shared/tab_wishlist' %>
     </div>
   </div>
