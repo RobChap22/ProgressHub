@@ -12,7 +12,8 @@
 
 .tab-contents-progresshub img {
   width: 100%;
-  height: auto;
+  object-fit: cover;
+  height: 50vh;
 }
 
 .tab-user-project-overview {
