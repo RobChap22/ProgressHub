@@ -13,11 +13,11 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "My Projects", dashboard_path, class: "nav-link" %>
-          </li>
           <li class="nav-item">
-            <%= link_to "Community", "#", class: "nav-link" %>
+            <%= link_to "Create", new_project_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "My projects", dashboard_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
