@@ -159,6 +159,8 @@
 
 .card-project-show .image-container img {
   width: 100%;
+  object-fit: cover;
+  height: 60vh;
 }
 
 .card-project-show .avatar {
