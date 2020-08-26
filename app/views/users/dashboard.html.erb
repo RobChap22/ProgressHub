@@ -16,15 +16,23 @@
     </div>
   </div>
   <div class="col-4">
-    <div class="profile-dash">
-      <%= cl_image_tag current_user.photo.key, class: "photo-dashbord" %>
-      <h2><%= current_user.username %></h2>
-      Member since <%= current_user.created_at.strftime(" %B %d, %Y")  %><br>
-      Achieved <%= @finished_projects.count %> projects <br>
-      Working on <%= @active_projects.count %> projects <br>
+    <div class="container">
+      <div class="profile-dash d-flex justify-content-around">
+        <%= cl_image_tag current_user.photo.key, class: "photo-dashbord" %>
+        <div class="profile-info">
+          <!-- Member since <%#= current_user.created_at.strftime(" %B %d, %Y")  %><br> -->
+          <h3><%= current_user.username %></h3>
+          <div class="icons">
+            <%= image_tag "badge.png", alt: "badge-icon", id: "badge" %>
+            <strong class="numbers"><%= @finished_projects.count %></strong>
+            completed    <br>
+            <%= image_tag "script.png", alt: "script-icon", id: "script" %>
+            <strong class="numbers"><%= @active_projects.count %></strong> on-going
+          </div>
+        </div>
+      </div>
     </div>
     <div class="skill-tags">
-
       <canvas id="myChart" width="400" height="400"></canvas>
       <%#= pie_chart @tag_hash %>
     </div>
