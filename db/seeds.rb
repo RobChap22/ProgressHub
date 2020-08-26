@@ -34,7 +34,7 @@ moe = User.create!(
   password: "password"
 )
 moe.photo.attach(io: moepic, filename: 'moe.jpeg', content_type: 'image/jpeg')
-5.times do
+50.times do
   username = Faker::Name.first_name
   next if User.find_by(username: username)
   user = User.create!(
@@ -47,35 +47,180 @@ puts "Created #{User.count} users!"
 
 # Projects
 keyword_array = ["plant", "math", "logic", "art", "coding"]
-keyword_array2 = ["easy", "fun", "intense"]
+keyword_array2 = ["easy", "fun", "intense", "moderate"]
 puts 'Creating projects...'
 @users = User.all
-@users.each do |user|
-  proj = Project.create!(
-    title: Faker::Company.industry,
-    user: user,
-    description: Faker::Company.bs,
-    tag_list: [keyword_array.sample, keyword_array2.sample],
-    published: true
-  )
-  serch_word = proj[:title]
-  projpic = URI.open("https://source.unsplash.com/featured/?#{serch_word}")
-  proj.photo.attach(io: projpic, filename: "#{serch_word.split(' ').first}.jpg", content_type: "#{serch_word.split(' ').first}/jpg")
-  ord = 1
-  rand(3..6).times do
-    ProjectStep.create!(
-      project: proj,
-      ordinal: ord,
-      description: Faker::Company.bs
-    )
-    ord += 1
-  end
-end
+# 5.times do
+#   proj = Project.create!(
+#     title: Faker::Company.industry,
+#     user: @users.sample,
+#     description: Faker::Company.bs,
+#     tag_list: [keyword_array.sample, keyword_array2.sample],
+#     published: true
+#   )
+#   serch_word = proj[:title]
+#   projpic = URI.open("https://source.unsplash.com/featured/?#{serch_word}")
+#   proj.photo.attach(io: projpic, filename: "#{serch_word.split(' ').first}.jpg", content_type: "#{serch_word.split(' ').first}/jpg")
+#   ord = 1
+#   rand(3..6).times do
+#     ProjectStep.create!(
+#       project: proj,
+#       ordinal: ord,
+#       description: Faker::Company.bs
+#     )
+#     ord += 1
+#   end
+# end
+
+proj1 = Project.create!(
+  title: "Nail Art",
+  user: @users.sample,
+  description: "Learn how to make your own beautiful nail art. From simple designs to character art, I will show you how!",
+  tag_list: ["creative", "lifestyle", "fun"],
+  published: true
+)
+search_word = proj1[:title]
+proj1pic = URI.open("https://source.unsplash.com/featured/?#{search_word}")
+proj1.photo.attach(io: proj1pic, filename: "#{search_word.split(' ').first}.jpg", content_type: "#{search_word.split(' ').first}/jpg")
+
+proj2 = Project.create!(
+  title: "Beginner's Yoga",
+  user: @users.sample,
+  description: "Yoga is a great way to focus your body and mind. In these videos I will show you some basic yoga stances that you can practice at home.",
+  tag_list: ["lifestyle", "moderate"],
+  published: true
+)
+search_word = proj2[:title]
+proj2pic = URI.open("https://source.unsplash.com/featured/?yoga")
+proj2.photo.attach(io: proj2pic, filename: "#{search_word.split(' ').first}.jpg", content_type: "#{search_word.split(' ').first}/jpg")
+
+proj3 = Project.create!(
+  title: "Personal Webpage",
+  user: @users.sample,
+  description: "I will show you how to make a simple webpage using HTML and CSS, and some free places to hostit online!",
+  tag_list: ["academic", "tech", "moderate"],
+  published: true
+)
+search_word = proj3[:title]
+proj3pic = URI.open("https://source.unsplash.com/featured/?#{search_word}")
+proj3.photo.attach(io: proj3pic, filename: "#{search_word.split(' ').first}.jpg", content_type: "#{search_word.split(' ').first}/jpg")
+
+proj4 = Project.create!(
+  title: "Start a YouTube Channel",
+  user: @users.sample,
+  description: "Making YouTube videos is really fun! In this project you can learn video editing and simple camerawork so that you can start making your own YouTube videos. Share what you love with the world!",
+  tag_list: ["lifestyle", "tech", "intense"],
+  published: true
+)
+search_word = proj4[:title]
+proj4pic = URI.open("https://source.unsplash.com/featured/?#{search_word}")
+proj4.photo.attach(io: proj4pic, filename: "#{search_word.split(' ').first}.jpg", content_type: "#{search_word.split(' ').first}/jpg")
+
+proj5 = Project.create!(
+  title: "Design a Boardgame",
+  user: @users.sample,
+  description: "Boardgames are fun to play, but also fun to make! This project takes you step-by-step from concept to playtesting. Please check my other project about publishing a boardgame if you want to go further!",
+  tag_list: ["social", "creative", "fun"],
+  published: true
+)
+search_word = proj5[:title]
+proj5pic = URI.open("https://source.unsplash.com/featured/?boardgame")
+proj5.photo.attach(io: proj5pic, filename: "#{search_word.split(' ').first}.jpg", content_type: "#{search_word.split(' ').first}/jpg")
+
+proj6 = Project.create!(
+  title: "Stop-Motion Animation",
+  user: @users.sample,
+  description: "You don't need lots of artists and equipment to make your own animation! Stop-motion is a fun way to express your creativity, and can be done with a regular digital camera.",
+  tag_list: ["practical", "creative", "tech", "intense"],
+  published: true
+)
+search_word = proj6[:title]
+proj6pic = URI.open("https://source.unsplash.com/featured/?#{search_word}")
+proj6.photo.attach(io: proj6pic, filename: "#{search_word.split(' ').first}.jpg", content_type: "#{search_word.split(' ').first}/jpg")
+
+proj7 = Project.create!(
+  title: "Become a 'Local Guide' on Google",
+  user: @users.sample,
+  description: "'Local Guides' are people who review interesting places around their area on Google Maps. It's a fun way to get in the habit of writing more, and you will be able to share your unique experiences with others all over the world!",
+  tag_list: ["practical", "lifestyle", "fun"],
+  published: true
+)
+search_word = proj7[:title]
+proj7pic = URI.open("https://source.unsplash.com/featured/?#{search_word}")
+proj7.photo.attach(io: proj7pic, filename: "#{search_word.split(' ').first}.jpg", content_type: "#{search_word.split(' ').first}/jpg")
+
+proj8 = Project.create!(
+  title: "Mindful Meditation",
+  user: @users.sample,
+  description: "Meditation seems easy but is actualy a challenge! It's a good way to balance your emotions and clear your thoughts. It helps with focus and attention. ",
+  tag_list: ["lifestyle", "easy"],
+  published: true
+)
+search_word = proj8[:title]
+proj8pic = URI.open("https://source.unsplash.com/featured/?#{search_word}")
+proj8.photo.attach(io: proj8pic, filename: "#{search_word.split(' ').first}.jpg", content_type: "#{search_word.split(' ').first}/jpg")
+
+proj9 = Project.create!(
+  title: "Make your own Earrings",
+  user: @users.sample,
+  description: "Jewelry is supposed to show your own style, so the best way to find the ones you want is to make them yourself! I will show you how to make your own earrings out of cheap materials you can easily buy from the internet!",
+  tag_list: ["lifestyle", "creative", "fun"],
+  published: true
+)
+search_word = proj9[:title]
+proj9pic = URI.open("https://source.unsplash.com/featured/?#{search_word}")
+proj9.photo.attach(io: proj9pic, filename: "#{search_word.split(' ').first}.jpg", content_type: "#{search_word.split(' ').first}/jpg")
+
+projX = Project.create!(
+  title: "Mood Board",
+  user: @users.sample,
+  description: "Mood boards can help give you encouragement and motivation, and cheer you up! It's really fun and easy to do.",
+  tag_list: ["creative", "fun"],
+  published: true
+)
+search_word = projX[:title]
+projXpic = URI.open("https://source.unsplash.com/featured/?#{search_word}")
+projX.photo.attach(io: projXpic, filename: "#{search_word.split(' ').first}.jpg", content_type: "#{search_word.split(' ').first}/jpg")
+
+projXI = Project.create!(
+  title: "Halloween Makeup",
+  user: @users.sample,
+  description: "Surprise your friends and family with a shocking new face! We canuse some simple tricks from Hollywood makeup artists to make impressive and grotesque designs.",
+  tag_list: ["creative", "fun"],
+  published: true
+)
+search_word = projXI[:title]
+projXIpic = URI.open("https://source.unsplash.com/featured/?#{search_word}")
+projXI.photo.attach(io: projXIpic, filename: "#{search_word.split(' ').first}.jpg", content_type: "#{search_word.split(' ').first}/jpg")
+
+projXII = Project.create!(
+  title: "Build a PC",
+  user: @users.sample,
+  description: "Make your own PC in this project. We can make the computer that we really want. It is not too difficult, like lego.",
+  tag_list: ["tech", "practical", "moderate"],
+  published: true
+)
+search_word = projXII[:title]
+projXIIpic = URI.open("https://source.unsplash.com/featured/?desktop")
+projXII.photo.attach(io: projXIIpic, filename: "#{search_word.split(' ').first}.jpg", content_type: "#{search_word.split(' ').first}/jpg")
+
+projXIII = Project.create!(
+  title: "Edit Wikipedia",
+  user: @users.sample,
+  description: "You can share your knowledge and help others! Wikipedia always needs volunteer editors to make sure the information is correct and current. If you are passionate about something you can let other people know about it on Wikipedia!",
+  tag_list: ["academic", "easy"],
+  published: true
+)
+search_word = projXIII[:title]
+projXIIIpic = URI.open("https://source.unsplash.com/featured/?#{search_word}")
+projXIII.photo.attach(io: projXIIIpic, filename: "#{search_word.split(' ').first}.jpg", content_type: "#{search_word.split(' ').first}/jpg")
+
 
 # BASIL EXAMPLE
 basil = Project.create!(
   title: "Grow Basil",
-  user: ver,
+  user: rob,
+  tag_list: ["practical", "easy"],
   published: true,
   description: "Basil is easy to grow, and transforms ordinary meals into culinary treasures! This project tells you how to plant and harvest basil."
 )
@@ -143,7 +288,7 @@ puts "created #{Quote.count} quotes"
 puts 'Creating reviews...'
 
 Project.all.each do |project|
-  rand(5).times do
+  rand(1..5).times do
     review = Review.create!(
       user: User.where.not(id: project.user.id).sample,
       content: Faker::Restaurant.review,
