@@ -16,19 +16,18 @@
     </div>
   </div>
   <div class="col-4">
-    <div class="container">
-      <div class="profile-dash d-flex justify-content-around">
-        <%= cl_image_tag current_user.photo.key, class: "photo-dashbord" %>
-        <div class="profile-info">
-          <!-- Member since <%#= current_user.created_at.strftime(" %B %d, %Y")  %><br> -->
-          <h3><%= current_user.username %></h3>
-          <div class="icons">
-            <%= image_tag "badge.png", alt: "badge-icon", id: "badge" %>
-            <strong class="numbers"><%= @finished_projects.count %></strong>
-            completed    <br>
-            <%= image_tag "script.png", alt: "script-icon", id: "script" %>
-            <strong class="numbers"><%= @active_projects.count %></strong> on-going
-          </div>
+    <div class="profile-dash d-flex justify-content-center">
+      <%= cl_image_tag current_user.photo.key, class: "photo-dashbord" %>
+      <div class="profile-info">
+        <h3><%= current_user.username %></h3>
+        <div class="icons">
+          <%= image_tag "badge.png", alt: "badge-icon", id: "badge" %>
+          <strong class="numbers"><%= @finished_projects.count %></strong>
+          completed    <br>
+          <%= image_tag "script.png", alt: "script-icon", id: "script" %>
+          <strong class="numbers"><%= @active_projects.count %></strong> on-going<br>
+          <%= image_tag "sport-team.png", alt: "join-icon", id: "join" %>
+          Member since <%= current_user.created_at.strftime(" %b %d, %Y")  %>
         </div>
       </div>
     </div>
