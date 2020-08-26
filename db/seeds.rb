@@ -295,8 +295,8 @@ Project.all.each do |project|
       rating: rand(1..5),
       project: project
     )
-    review_photo = URI.open("https://source.unsplash.com/featured/?#{project.title}")
-    review.photo.attach(io: review_photo, filename: "review_#{project.title.split(' ').first}.jpg", content_type: 'image/jpg') if rand(5).even?
+    # review_photo = URI.open("https://source.unsplash.com/featured/?#{project.title}")
+    # review.photo.attach(io: review_photo, filename: "review_#{project.title.split(' ').first}.jpg", content_type: 'image/jpg') if rand(5).even?
   end
 end
 puts "created #{Review.count} reviews"
