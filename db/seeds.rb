@@ -220,6 +220,7 @@ projXIII.photo.attach(io: projXIIIpic, filename: "#{search_word.split(' ').first
 basil = Project.create!(
   title: "Grow Basil",
   user: rob,
+  esttime: "2 weeks",
   tag_list: ["practical", "easy"],
   published: true,
   description: "Basil is easy to grow, and transforms ordinary meals into culinary treasures! This project tells you how to plant and harvest basil."

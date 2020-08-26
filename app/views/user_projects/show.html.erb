@@ -16,6 +16,8 @@
         <div class="tab-user-project-overview">
           <h1><%= @user_project.project.title %></h1>
           <%= cl_image_tag @user_project.project.photo.key %>
+          <p>Estimated time to finish: <%= @user_project.project.esttime %></p>
+          <p><%= @user_project.project.description %></p>
         </div>
       </div>
       <% @steps.each do |step| %>
