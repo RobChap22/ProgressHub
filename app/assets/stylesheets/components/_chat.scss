@@ -1,6 +1,6 @@
 .chatbox {
   background: white;
-  height: 80vh;
+  height: 60vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -35,4 +35,8 @@
   .form-group {
     margin-bottom: 0;
   }
+}
+
+.to_center {
+    text-align: center;
 }

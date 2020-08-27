@@ -17,9 +17,11 @@
         <%= f.submit "Send", class: "btn mt-3 landing-button btn-lg"%>
       <% end %>
     <% else %>
-      <%= simple_form_for [project, user_project] do |f| %>
-        <%= f.submit "Enroll and join chat!", class: "btn landing-button btn-lg"%>
-      <% end %>
+      <div class="to_center">
+        <%= simple_form_for [project, user_project] do |f| %>
+          <%= f.submit "Enroll and join chat!", class: "btn landing-button btn-lg enroll-btn"%>
+        <% end %>
+      </div>
     <% end %>
   </div>
 </div>
