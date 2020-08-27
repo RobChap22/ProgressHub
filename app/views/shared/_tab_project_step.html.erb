@@ -1,0 +1,15 @@
+<div class="project-step-image"><%= cl_image_tag (step.photo.key) if step.photo.attached? %></div>
+
+<h2><%= step.header %></h2>
+<p><%= step.description %></p>
+<% if step.ordinal == @steps.count %>
+  <%= simple_form_for @user_project do |f| %>
+    <%= f.input :completed, as: :hidden, input_html: {value: true} %>
+    <%= f.submit "Finish Project", class: "btn landing-button btn-lg"%>
+  <% end %>
+<% else %>
+  <%= simple_form_for @user_project, remote: true, html: { 'data-next-tab': "tab-#{step.ordinal + 1}" } do |f| %>
+    <%= f.input :last_completed, as: :hidden, input_html: {value: step.ordinal} %>
+    <%= f.submit "Complete!", class: "btn landing-button btn-lg"%>
+  <% end %>
+<% end %>
