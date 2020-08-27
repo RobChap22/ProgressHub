@@ -11,14 +11,17 @@
     </div>
   </div>
   <div class="col-6">
-    <div class="tab-content tab-contents-progresshub" id="nav-tabContent">
+    <div class="tab-content" id="nav-tabContent">
       <div class="tab-pane fade show active" id="nav-overview" role="tabpanel" aria-labelledby="nav-overview-tab">
-        <div class="tab-user-project-overview">
+        <div class="tab-user-project-overview our-background">
           <%= render 'shared/tab_overview', project: @project  %>
         </div>
+      <div class="reviews">
+        <%= render 'reviews/index', reviews: @project.reviews %>
+      </div>
       </div>
       <% @steps.each do |step| %>
-        <div class="tab-pane fade p-5" id="nav-<%= step.ordinal %>" role="tabpanel" aria-labelledby="nav-<%= step.ordinal %>-tab">
+        <div class="tab-pane fade p-5 our-background" id="nav-<%= step.ordinal %>" role="tabpanel" aria-labelledby="nav-<%= step.ordinal %>-tab">
           <%= cl_image_tag (step.photo.key) if step.photo.attached? %>
           <h2><%= step.header %></h2>
           <p><%= step.description %></p>
@@ -27,7 +30,7 @@
           <% end %>
         </div>
       <% end %>
-      <div class="tab-pane fade show" id="nav-new-step" role="tabpanel" aria-labelledby="nav-overview-tab">
+      <div class="tab-pane fade show our-background" id="nav-new-step" role="tabpanel" aria-labelledby="nav-overview-tab">
         <div class="tab-user-project-overview">
           <h1>New form</h1>
         </div>

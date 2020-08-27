@@ -6,3 +6,11 @@ a:hover {
 .background-lightblue {
   background-color: $light-blue;
 }
+
+.our-background {
+  background-color: white;
+  padding: 16px;
+  margin: 16px;
+  border-radius: 16px;
+  border: 2px solid $dark_blue1;
+}

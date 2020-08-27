@@ -18,19 +18,22 @@
     </div>
   </div>
   <div class="col-6">
-    <div class="tab-content tab-contents-progresshub" id="nav-tabContent">
+    <div class="tab-content" id="nav-tabContent">
       <div class="tab-pane fade show active" id="nav-overview" role="tabpanel" aria-labelledby="nav-overview-tab">
-        <div class="tab-user-project-overview">
+        <div class="tab-user-project-overview our-background">
           <%= render 'shared/tab_overview', project: @user_project.project %>
+        </div>
+        <div class="reviews">
+          <%= render 'reviews/index', reviews: @project.reviews %>
         </div>
       </div>
       <% @steps.each do |step| %>
-        <div class="tab-pane fade p-5" id="nav-<%= step.ordinal %>" role="tabpanel" aria-labelledby="nav-<%= step.ordinal %>-tab">
+        <div class="tab-pane fade p-5 our-background" id="nav-<%= step.ordinal %>" role="tabpanel" aria-labelledby="nav-<%= step.ordinal %>-tab">
           <%= render 'shared/tab_project_step', step: step %>
         </div>
       <% end %>
       <div class="tab-pane fade show" id="nav-new-step" role="tabpanel" aria-labelledby="nav-overview-tab">
-        <div class="tab-user-project-overview">
+        <div class="tab-user-project-overview our-background">
           <h1>New form here</h1>
           <%= simple_form_for [@project, @project_step] do |f| %>
             <%= f.input :header %>

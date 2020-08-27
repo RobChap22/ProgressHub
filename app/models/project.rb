@@ -5,8 +5,10 @@ class Project < ApplicationRecord
   has_many :user_projects
   has_many :users, through: :user_projects
   has_many :messages, dependent: :destroy
+  has_many :reviews
   validates :title, presence: true
   acts_as_taggable_on :tags
+
 
   after_create :create_user_project_for_creator
 
