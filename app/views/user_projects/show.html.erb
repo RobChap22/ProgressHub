@@ -3,7 +3,14 @@
     <div class="nav nav-tabs flex-column tab-buttons-progresshub m-2" id="nav-tab" role="tablist" aria-orientation="vertical">
       <a class="nav-link active mb-1" id="nav-overview-tab" data-toggle="tab" href="#nav-overview" role="tab" aria-controls="nav-overview" aria-selected="true">Overview</a>
       <% @steps.each do |step| %>
-        <a class="nav-link mb-1" id="tab-<%= step.ordinal %>" data-toggle="tab" href="#nav-<%= step.ordinal %>" role="tab" aria-controls="nav-<%= step.ordinal %>" aria-selected="false"><%= "Step #{step.ordinal}" %></a>
+        <a class="nav-link mb-1 d-flex justify-content-between" id="tab-<%= step.ordinal %>" data-toggle="tab" href="#nav-<%= step.ordinal %>" role="tab" aria-controls="nav-<%= step.ordinal %>" aria-selected="false">
+          <div><%= "Step #{step.ordinal}" %></div>
+          <div>
+            <% if step.ordinal <= @user_project.last_completed %>
+              <%= image_tag "check.png", alt: "badge-icon", id: "badge" %>
+            <% end %>
+          </div>
+        </a>
       <% end %>
       <% if current_user == @user_project.project.user %>
         <a class="nav-link mb-1" id="add-step-tab" data-toggle="tab" href="#nav-new-step" role="tab" aria-controls="nav-overview">Add step</a>

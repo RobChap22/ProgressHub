@@ -21,8 +21,7 @@
         <h3><%= current_user.username %></h3>
         <div class="icons">
           <%= image_tag "badge.png", alt: "badge-icon", id: "badge" %>
-          <strong class="numbers"><%= @finished_projects.count %></strong>
-          completed    <br>
+          <strong class="numbers"><%= @finished_projects.count %></strong> completed<br>
           <%= image_tag "script.png", alt: "script-icon", id: "script" %>
           <strong class="numbers"><%= @active_projects.count %></strong> on-going<br>
           <%= image_tag "sport-team.png", alt: "join-icon", id: "join" %>
