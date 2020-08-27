@@ -1,4 +1,4 @@
-const dewIt = () => {
+const radarChart = () => {
   const ctx = document.getElementById('myChart').getContext('2d');
   const options = {
     scale: {
@@ -6,8 +6,9 @@ const dewIt = () => {
             display: true
         },
         ticks: {
-            suggestedMin: 0,
-            suggestedMax: 10
+            suggestedMin: -1,
+            suggestedMax: 5,
+            stepSize: 1
         }
     }
   };
@@ -23,4 +24,4 @@ const dewIt = () => {
   });
 };
 
-export {dewIt};
+export {radarChart};
