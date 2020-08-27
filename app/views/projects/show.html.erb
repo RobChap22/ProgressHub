@@ -22,12 +22,7 @@
       </div>
       <% @steps.each do |step| %>
         <div class="tab-pane fade p-5 our-background" id="nav-<%= step.ordinal %>" role="tabpanel" aria-labelledby="nav-<%= step.ordinal %>-tab">
-          <%= cl_image_tag (step.photo.key) if step.photo.attached? %>
-          <h2><%= step.header %></h2>
-          <p><%= step.description %></p>
-          <%= simple_form_for [@project, @user_project]  do |f| %>
-            <%= f.submit "Start this project", class: "btn landing-button btn-lg"%>
-          <% end %>
+          <%= render 'shared/tab_project_step_show', step: step %>
         </div>
       <% end %>
       <div class="tab-pane fade show our-background" id="nav-new-step" role="tabpanel" aria-labelledby="nav-overview-tab">
