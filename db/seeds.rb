@@ -98,6 +98,7 @@ proj2.photo.attach(io: proj2pic, filename: "#{search_word.split(' ').first}.jpg"
 personal_web = Project.create!(
   title: "Personal Webpage",
   user: rob,
+  esttime: "3 weeks",
   description: "I will show you how to make a simple webpage using HTML and CSS, and some free places to hostit online!",
   tag_list: ["academic", "tech", "moderate"],
   published: false
@@ -119,6 +120,16 @@ descriptions = [nil,
   'Upload your pages and files to your root folder ("/"). Use an FTP program or your web browser to log in to the server. On your browser\'s address bar type "ftp://your-domain-name.com" and hit "Go" or the Enter key, then fill out the prompt with your username and password (provided by your host). You can browse your folders as you would on your PC or Mac.',
   'Keeping your family and friends up-to-date with news and photos is invaluable to them. Share new stories and jokes with them frequently to keep them coming back.'
 ]
+pics = [
+  nil,
+  'app/assets/images/findhost.png',
+  'app/assets/images/content.jpg',
+  'app/assets/images/logo.jpg',
+  'app/assets/images/pages.jpeg',
+  'app/assets/images/publish.jpg',
+  'app/assets/images/update.jpg'
+
+]
 
 counter = 1
 6.times do
@@ -128,7 +139,7 @@ counter = 1
   header: headers[counter],
   description: descriptions[counter]
 )
-  pic = File.open('app/assets/images/personal_web.jpg')
+  pic = File.open(pics[counter])
   step.photo.attach(io: pic, filename: "#{headers[counter]}", content_type: 'image/jpg')
   counter += 1
 end
