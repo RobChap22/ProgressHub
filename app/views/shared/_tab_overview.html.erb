@@ -1,41 +1,42 @@
 <div class="project-overview">
-  <div class="project-overview-hero d-flex justify-space-between mb-5">
-    <div class="project-view-image mr-4">
-      <%= cl_image_tag project.photo.key %>
-    </div>
-    <div class="project-overview-hero-info">
-      <h1 class="mb-4"><%= project.title %></h1>
-
-      <div class="created-by d-flex mb-4">
-        <div class="avatar">
-          <% if project.user.photo.attached? %>
-            <%= cl_image_tag project.user.photo.key, class: "avatar" %>
-          <% else %>
-            <%= image_tag "default-avatar.jpg", class: "avatar" %>
-          <% end %>
-        </div>
-        <div class="pl-3">
-          <p class="m-0">Created By</p>
-          <p class="m-0"><%= project.user.username %></p>
-        </div>
+  <div class="container py-4">
+    <div class="project-overview-hero d-flex justify-space-between mb-5">
+      <div class="project-view-image mr-4">
+        <%= cl_image_tag project.photo.key %>
       </div>
-       <p>Estimated time to finish: <%= project.esttime %></p>
-    </div>
-  </div>
+      <div class="project-overview-hero-info">
+        <h1 class="mb-4"><%= project.title %></h1>
 
-  <div class="overview-info">
-    <p><%= project.description %></p>
-
-    <div class="project-step-preview ml-5">
-      <% project.project_steps.each do |step| %>
-        <div class="d-flex m-4">
-          <%= cl_image_tag step.photo.key, :width=>150, :crop=>"scale" %>
-          <div class="ml-2">
-            <h2>Step <%= step.ordinal %>:</h2>
-            <p><%= step.header %></p>
+        <div class="created-by d-flex mb-4">
+          <div class="avatar">
+            <% if project.user.photo.attached? %>
+              <%= cl_image_tag project.user.photo.key, class: "avatar" %>
+            <% else %>
+              <%= image_tag "default-avatar.jpg", class: "avatar" %>
+            <% end %>
+          </div>
+          <div class="pl-3">
+            <p class="m-0">Created By</p>
+            <p class="m-0"><%= project.user.username %></p>
           </div>
         </div>
-      <% end %>
+        <%= image_tag "clock.png", alt: "clock-icon", id: "clock" %><%= project.esttime %>
+      </div>
+    </div>
+    <div class="overview-info">
+      <p><%= project.description %></p>
+
+      <div class="project-step-preview ml-5">
+        <% project.project_steps.each do |step| %>
+          <div class="d-flex m-4">
+            <%= cl_image_tag step.photo.key, :width=>150, :crop=>"scale" %>
+            <div class="ml-2">
+              <h2>Step <%= step.ordinal %></h2>
+              <p><%= step.header %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
