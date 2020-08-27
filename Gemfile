@@ -29,7 +29,7 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.12.0'
 gem 'acts-as-taggable-on', '~> 6.0'
 gem "chartkick"
-
+gem 'popper_js', '~> 1.9', '>= 1.9.9'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
