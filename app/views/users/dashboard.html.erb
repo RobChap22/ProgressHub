@@ -4,7 +4,7 @@
       <a class="nav-link active mb-1" id="nav-act-proj-tab" data-toggle="tab" href="#nav-act-proj" role="tab" aria-controls="nav-act-proj" aria-selected="true">Active</a>
       <a class="nav-link mb-1" id="nav-achieved-tab" data-toggle="tab" href="#nav-achieved" role="tab" aria-controls="nav-achieved" aria-selected="false">Achieved</a>
       <a class="nav-link mb-1" id="nav-create-tab" data-toggle="tab" href="#nav-create" role="tab" aria-controls="nav-create" aria-selected="false">Create</a>
-      <a class="nav-link mb-1" id="nav-wishlist-tab" data-toggle="tab" href="#nav-wishlist" role="tab" aria-controls="nav-wishlist" aria-selected="false">Wishlist</a>
+      <a class="nav-link mb-1" id="nav-review-tab" data-toggle="tab" href="#nav-review" role="tab" aria-controls="nav-review" aria-selected="false">Reviews</a>
     </div>
   </div>
   <div class="col-6">
@@ -12,7 +12,6 @@
       <%= render 'shared/tab_active', active_projects: @active_projects %>
       <%= render 'shared/tab_achieved', finished_projects: @finished_projects %>
       <%= render 'shared/tab_create', projects_published: @projects_published, projects_drafts: @projects_drafts %>
-      <%= render 'shared/tab_wishlist' %>
     </div>
   </div>
   <div class="col-4">
