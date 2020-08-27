@@ -14,8 +14,7 @@
     <div class="tab-content tab-contents-progresshub" id="nav-tabContent">
       <div class="tab-pane fade show active" id="nav-overview" role="tabpanel" aria-labelledby="nav-overview-tab">
         <div class="tab-user-project-overview">
-          <h1>Render pending</h1>
-            <%#= render 'shared/tab_overview', project: @project  %>
+          <%= render 'shared/tab_overview', project: @project  %>
         </div>
       </div>
       <% @steps.each do |step| %>
