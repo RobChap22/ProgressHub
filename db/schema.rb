@@ -70,6 +70,8 @@ ActiveRecord::Schema.define(version: 2020_08_26_102532) do
   create_table "quotes", force: :cascade do |t|
     t.string "content"
     t.string "person"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "reviews", force: :cascade do |t|

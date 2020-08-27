@@ -1,6 +1,16 @@
 <h2>Reviews</h2>
 <% reviews.each do |review| %>
   <div class="card-review mx-4">
+    <div class="card-index-footer-user align-items-center d-flex">
+      <% if review.user.photo.attached? %>
+        <%= cl_image_tag review.user.photo.key, class: "avatar" %>
+      <% else %>
+        <%= image_tag "default-avatar.jpg", class: "avatar" %>
+      <% end %>
+      <div class="ml-3">
+        <p class="m-0" ><%= review.user.username %></p>
+      </div>
+    </div>
     <%= review.content %>
     <!-- <%= review.rating %> -->
     <%= review.user.username %>
