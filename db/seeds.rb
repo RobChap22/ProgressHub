@@ -320,18 +320,60 @@ puts "created #{Quote.count} quotes"
 # REVIEW
 puts 'Creating reviews...'
 
-Project.all.each do |project|
-  rand(1..5).times do
-    review = Review.create!(
-      user: User.where.not(id: project.user.id).sample,
-      content: Faker::Restaurant.review,
-      rating: rand(1..5),
-      project: project
-    )
-    # review_photo = URI.open("https://source.unsplash.com/featured/?#{project.title}")
-    # review.photo.attach(io: review_photo, filename: "review_#{project.title.split(' ').first}.jpg", content_type: 'image/jpg') if rand(5).even?
-  end
-end
+basrev1 = Review.create!(
+  user: User.where.not(id: basil.user.id).sample,
+  project: basil,
+  rating: rand(3..5),
+  content: "I was surprised how easy it was to grow basil! I gave lots to my grandma and she loves it."
+)
+
+basrev2 = Review.create!(
+  user: User.where.not(id: basil.user.id).sample,
+  project: basil,
+  rating: rand(3..4),
+  content: "I found it really difficult, and the first time I tried they didn't grow. Be careful not to leave them somewhere too hot! After I learned that, my second try was successful."
+)
+
+basrev3 = Review.create!(
+  user: User.where.not(id: basil.user.id).sample,
+  project: basil,
+  rating: rand(4..5),
+  content: "The basil is so tasty! My mother uses it in her cooking a lot, and she wants me to grow more herbs ;^_^"
+)
+
+webrev1 = Review.create!(
+  user: User.where.not(id: personal_web.user.id).sample,
+  project: personal_web,
+  rating: rand(2..4),
+  content: "I found it quite difficult, so I needed to look at YouTube videos to help me."
+)
+
+webrev2 = Review.create!(
+  user: User.where.not(id: personal_web.user.id).sample,
+  project: personal_web,
+  rating: rand(3..5),
+  content: "I learned HTML before, but I didn't know about CSS, so this was a good project. At the end I could make a great website for my cat pictures."
+)
+
+webrev3 = Review.create!(
+  user: User.where.not(id: personal_web.user.id).sample,
+  project: personal_web,
+  rating: rand(4..5),
+  content: "Have a look at the website I made: http://www.animepowerhour.club"
+)
+
+# Project.all.each do |project|
+#   rand(1..5).times do
+#     review = Review.create!(
+#       user: User.where.not(id: project.user.id).sample,
+#       content: Faker::Restaurant.review,
+#       rating: rand(1..5),
+#       project: project
+#     )
+#     # review_photo = URI.open("https://source.unsplash.com/featured/?#{project.title}")
+#     # review.photo.attach(io: review_photo, filename: "review_#{project.title.split(' ').first}.jpg", content_type: 'image/jpg') if rand(5).even?
+#   end
+# end
 puts "created #{Review.count} reviews"
 
 
