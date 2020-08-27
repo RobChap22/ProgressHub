@@ -58,7 +58,7 @@
         <%= f.submit "Publish", class: "btn landing-button btn-lg" %>
       <% end %>
     <% else %>
-      <%= render 'chatrooms/show', project: @user_project.project %>
+      <%= render 'chatrooms/show', project: @user_project.project, user_project: @user_project, message: @message %>
     <% end %>
   </div>
 </div>
