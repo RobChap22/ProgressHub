@@ -94,16 +94,47 @@ search_word = proj2[:title]
 proj2pic = URI.open("https://source.unsplash.com/featured/?yoga")
 proj2.photo.attach(io: proj2pic, filename: "#{search_word.split(' ').first}.jpg", content_type: "#{search_word.split(' ').first}/jpg")
 
-proj3 = Project.create!(
+personal_web = Project.create!(
   title: "Personal Webpage",
-  user: @users.sample,
+  user: rob,
   description: "I will show you how to make a simple webpage using HTML and CSS, and some free places to hostit online!",
   tag_list: ["academic", "tech", "moderate"],
-  published: true
+  published: false
 )
-search_word = proj3[:title]
-proj3pic = URI.open("https://source.unsplash.com/featured/?#{search_word}")
-proj3.photo.attach(io: proj3pic, filename: "#{search_word.split(' ').first}.jpg", content_type: "#{search_word.split(' ').first}/jpg")
+search_word = "pc"
+personal_webpic = URI.open("https://source.unsplash.com/featured/?pc")
+personal_web.photo.attach(io: personal_webpic, filename: "#{search_word.split(' ').first}.jpg", content_type: "#{search_word.split(' ').first}/jpg")
+
+
+puts 'creating steps for personal website...'
+
+headers = [nil, "Find a host", "Decide on the content", "Create a logo", "Create pages", "Publish", "Update"]
+
+descriptions = [nil,
+  "The host is the company that will store the files that make up your website. Whether it's free or paid, you'll need to set up an account first.",
+  "You know this is a website for your friends and family, so think about what you will offer them when they visit. Some great ideas are tools like photo galleries, a calendar, a guest-book or forum, an e-mail list, and news on your front-page. Write down your thoughts as you come up with what to include.",
+  "Use a program like Corel Paint Shop Pro to manipulate some text (possibly your name or family name) into an attractive and pleasing design. You could just save yourself the money and look for some open source software, gimp or inkscape should do just fine. They are also free and just as useful as Photoshop and Paint.",
+  'Using HTML or a Web-Publishing tool like Macromedia Dreamweaver, create a "Home" page with an introduction to the website, news, and basic instructions on how to navigate it. Other pages such as a "Biography" page and a "Contact" page may soon follow. Save the pages as .html.',
+  'Upload your pages and files to your root folder ("/"). Use an FTP program or your web browser to log in to the server. On your browser\'s address bar type "ftp://your-domain-name.com" and hit "Go" or the Enter key, then fill out the prompt with your username and password (provided by your host). You can browse your folders as you would on your PC or Mac.',
+  'Keeping your family and friends up-to-date with news and photos is invaluable to them. Share new stories and jokes with them frequently to keep them coming back.'
+]
+
+counter = 1
+6.times do
+  step = ProjectStep.create!(
+  project: personal_web,
+  ordinal: counter,
+  header: headers[counter],
+  description: descriptions[counter]
+)
+  pic = URI.open("https://source.unsplash.com/featured/?#{headers[counter]} pc")
+  step.photo.attach(io: pic, filename: "#{headers[counter]}", content_type: 'image/jpg')
+  counter += 1
+end
+
+puts "#{ProjectStep.where(project: personal_web).count} steps created for personal webpage"
+
+
 
 proj4 = Project.create!(
   title: "Start a YouTube Channel",
@@ -219,7 +250,7 @@ projXIII.photo.attach(io: projXIIIpic, filename: "#{search_word.split(' ').first
 # BASIL EXAMPLE
 basil = Project.create!(
   title: "Grow Basil",
-  user: rob,
+  user: moe,
   esttime: "2 weeks",
   tag_list: ["practical", "easy"],
   published: true,
@@ -268,6 +299,7 @@ s5 = ProjectStep.create!(
 pic5 = URI.open('https://i.ytimg.com/vi/PrLWG_w2GHg/maxresdefault.jpg')
 s5.photo.attach(io: pic5, filename: 'trim.jpg', content_type: 'image/jpg')
 puts "#{Project.count} projects created."
+
 
 # QUOTE
 puts 'Deleting all quotes...'
