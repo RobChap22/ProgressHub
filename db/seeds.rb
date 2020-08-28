@@ -494,7 +494,7 @@ m2 = Message.create!(
   project: basil
   )
 m3 = Message.create!(
-  content: "@#{@users.sample} did you try keeping them out of direct sunlight?",
+  content: "did you try keeping them out of direct sunlight?",
   user: @users.sample,
   created_at: Time.now,
   project: basil
@@ -544,5 +544,6 @@ mV = Message.create!(
   )
 
 puts "#{Message.count} messages seeded."
+
 
 puts "Seed complete."
