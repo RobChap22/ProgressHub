@@ -39,7 +39,7 @@ moe.photo.attach(io: moepic, filename: 'moe.jpeg', content_type: 'image/jpeg')
   next if User.find_by(username: username)
   user = User.create!(
     username: username,
-    email: Faker::Internet.email,
+    email: "#{username}@caramail.com",
     password: "password"
   )
 end
@@ -49,7 +49,7 @@ puts "Created #{User.count} users!"
 keyword_array = ["creative", "tech", "practical", "academic", "lifestyle", "social"]
 keyword_array2 = ["easy", "fun", "intense", "moderate"]
 puts 'Creating projects...'
-@users = User.all
+@users = User.where.not(id: rob.id)
 # 5.times do
 #   proj = Project.create!(
 #     title: Faker::Company.industry,
@@ -387,6 +387,39 @@ webrev3 = Review.create!(
 #     # review.photo.attach(io: review_photo, filename: "review_#{project.title.split(' ').first}.jpg", content_type: 'image/jpg') if rand(5).even?
 #   end
 # end
+
+# Complited projects for Rob
+puts 'Creating complited user_projects forr rob...'
+rob = User.find_by(username: "Rob")
+pc_rob = UserProject.create!(
+  project: projXII,
+  user: rob,
+  completed: true,
+  last_completed: projXII.project_steps.count
+  )
+
+wiki_rob = UserProject.create!(
+  project: projXIII,
+  user: rob,
+  completed: true,
+  last_completed: projXIII.project_steps.count
+  )
+
+stopmotion_rob = UserProject.create!(
+  project: proj6,
+  user: rob,
+  completed: true,
+  last_completed: proj6.project_steps.count
+  )
+basil_rob = UserProject.create!(
+  project: basil,
+  user: rob,
+  completed: false,
+  last_completed: 4
+  )
+
+
+
 puts "created #{Review.count} reviews"
 
 
