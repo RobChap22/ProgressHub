@@ -10,7 +10,7 @@
 <% else %>
   <%= simple_form_for @user_project, remote: true, html: { 'data-next-tab': "tab-#{step.ordinal + 1}" } do |f| %>
     <%= f.input :last_completed, as: :hidden, input_html: {value: step.ordinal} %>
-    <%= f.submit "Complete!", class: "btn landing-button btn-lg"%>
+    <%= f.submit "Next step", class: "btn landing-button btn-lg"%>
   <% end %>
 <% end %>
 
