@@ -110,6 +110,8 @@ personal_web.photo.attach(io: personal_webpic, filename: "#{search_word.split(' 
 
 puts 'creating steps for personal website...'
 
+
+
 headers = [nil, "Find a host", "Decide on the content", "Create a logo", "Create pages", "Publish", "Update"]
 
 descriptions = [nil,
@@ -128,23 +130,76 @@ pics = [
   'app/assets/images/pages.jpeg',
   'app/assets/images/publish.jpg',
   'app/assets/images/update.jpg'
-
 ]
 
-counter = 1
-6.times do
-  step = ProjectStep.create!(
+step1 = ProjectStep.create!(
   project: personal_web,
-  ordinal: counter,
-  header: headers[counter],
-  description: descriptions[counter]
+  ordinal: 1,
+  header: "Find a host",
+  description: "The host is the company that will store the files that make up your website. Whether it's free or paid, you'll need to set up an account first."
 )
-  pic = File.open(pics[counter])
-  step.photo.attach(io: pic, filename: "#{headers[counter]}", content_type: 'image/jpg')
-  counter += 1
-end
+  pic = File.open('app/assets/images/findhost.png')
+  step1.photo.attach(io: pic, filename: "#{headers[1]}", content_type: 'image/jpg')
+
+step2 = ProjectStep.create!(
+  project: personal_web,
+  ordinal: 2,
+  header: "Decide on the content",
+  description: "You know this is a website for your friends and family, so think about what you will offer them when they visit. Some great ideas are tools like photo galleries, a calendar, a guest-book or forum, an e-mail list, and news on your front-page. Write down your thoughts as you come up with what to include."
+)
+  pic = File.open('app/assets/images/content.jpg')
+  step2.photo.attach(io: pic, filename: "#{headers[2]}", content_type: 'image/jpg')
+
+step3 = ProjectStep.create!(
+  project: personal_web,
+  ordinal: 3,
+  header: "Create a logo",
+  description: descriptions[3]
+)
+  pic = File.open(pics[3])
+  step3.photo.attach(io: pic, filename: "#{headers[3]}", content_type: 'image/jpg')
+
+step4 = ProjectStep.create!(
+  project: personal_web,
+  ordinal: 4,
+  header: headers[4],
+  description: descriptions[4]
+)
+  pic = File.open(pics[4])
+  step4.photo.attach(io: pic, filename: "#{headers[4]}", content_type: 'image/jpg')
+
+step5 = ProjectStep.create!(
+  project: personal_web,
+  ordinal: 5,
+  header: headers[5],
+  description: descriptions[5]
+)
+  pic = File.open(pics[5])
+  step5.photo.attach(io: pic, filename: "#{headers[5]}", content_type: 'image/jpg')
+
+
+step6 = ProjectStep.create!(
+  project: personal_web,
+  ordinal: 6,
+  header: headers[6],
+  description: descriptions[6]
+)
+  pic = File.open(pics[6])
+  step6.photo.attach(io: pic, filename: "#{headers[6]}", content_type: 'image/jpg')
 
 puts "#{ProjectStep.where(project: personal_web).count} steps created for personal webpage"
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
