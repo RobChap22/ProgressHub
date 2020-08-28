@@ -14,7 +14,9 @@
       </div>
     <% end %>
   <% end %>
-  <h1>Projects you created</h1>
+  <% if projects_published.present? %>
+    <h1>Projects you created</h1>
+  <% end %>
   <% projects_published.each do |project_published| %>
     <%= link_to user_project_path(project_published) do %>
       <div class="card-proj-dashbord">
