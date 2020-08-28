@@ -1,0 +1,5 @@
+meta_product_name: "ProgressHub"
+meta_title: "ProgressHub - my choice, my pace, my progress"
+meta_description: "ProgressHub is an Project-based learning platform for those who feel disconnected to school. Learn about yourself in different ways!"
+meta_image: "logoProgressHub.jpg" # should exist in `app/assets/images/`
+# twitter_account: "@product_twitter_account"   # required for Twitter Cards
