@@ -101,7 +101,7 @@ personal_web = Project.create!(
   esttime: "1 week",
   description: "I will show you how to make a simple webpage using HTML and CSS, and some free places to hostit online!",
   tag_list: ["academic", "tech", "moderate"],
-  published: false
+  published: true
 )
 search_word = "pc"
 personal_webpic = File.open('app/assets/images/pc.jpg')
@@ -477,10 +477,72 @@ basil_rob = UserProject.create!(
   completed: false,
   last_completed: 4
   )
-
-
-
 puts "created #{Review.count} reviews"
 
+puts "Seeding messages"
+
+m1 = Message.create!(
+  content: "hahahaha yeah I agree",
+  user: @users.sample,
+  created_at: Time.now,
+  project: basil
+  )
+m2 = Message.create!(
+  content: "lol",
+  user: @users.sample,
+  created_at: Time.now,
+  project: basil
+  )
+m3 = Message.create!(
+  content: "@#{@users.sample} did you try keeping them out of direct sunlight?",
+  user: @users.sample,
+  created_at: Time.now,
+  project: basil
+  )
+m4 = Message.create!(
+  content: "no, they were in my window the whole time",
+  user: @users.sample,
+  created_at: Time.now,
+  project: basil
+  )
+m5 = Message.create!(
+  content: "ah that's probably why",
+  user: @users.sample,
+  created_at: Time.now,
+  project: basil
+  )
+
+mI = Message.create!(
+  content: "if you click on 'inspect' you can see it",
+  user: @users.sample,
+  created_at: Time.now,
+  project: personal_web
+  )
+mII = Message.create!(
+  content: "ahhhhh I see. thanks!",
+  user: @users.sample,
+  created_at: Time.now,
+  project: personal_web
+  )
+mIII = Message.create!(
+  content: "np",
+  user: @users.sample,
+  created_at: Time.now,
+  project: personal_web
+  )
+mIV = Message.create!(
+  content: "hey guys I found a great website for color schemes https://www.happyhues.co/",
+  user: @users.sample,
+  created_at: Time.now,
+  project: personal_web
+  )
+mV = Message.create!(
+  content: "wow, great! thanks!!!",
+  user: @users.sample,
+  created_at: Time.now,
+  project: personal_web
+  )
+
+puts "#{Message.count} messages seeded."
 
 puts "Seed complete."
