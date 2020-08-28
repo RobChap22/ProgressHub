@@ -27,7 +27,7 @@
       <p><%= project.description %></p>
 
       <div class="project-step-preview ml-5">
-        <% project.project_steps.each do |step| %>
+        <% project.project_steps.order(:ordinal).each do |step| %>
           <div class="d-flex m-4">
             <%= cl_image_tag step.photo.key, :width=>150, :crop=>"scale" %>
             <div class="ml-2">
