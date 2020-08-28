@@ -97,8 +97,8 @@ proj2.photo.attach(io: proj2pic, filename: "#{search_word.split(' ').first}.jpg"
 
 personal_web = Project.create!(
   title: "Personal Webpage",
-  user: rob,
-  esttime: "3 weeks",
+  user: ver,
+  esttime: "1 week",
   description: "I will show you how to make a simple webpage using HTML and CSS, and some free places to hostit online!",
   tag_list: ["academic", "tech", "moderate"],
   published: false
@@ -313,6 +313,66 @@ pic5 = URI.open('https://i.ytimg.com/vi/PrLWG_w2GHg/maxresdefault.jpg')
 s5.photo.attach(io: pic5, filename: 'trim.jpg', content_type: 'image/jpg')
 puts "#{Project.count} projects created."
 
+
+# PESTO
+
+pesto = Project.create!(
+  title: "Home-made Pesto",
+  user: rob,
+  esttime: "1 day",
+  tag_list: ["practical", "easy"],
+  published: false,
+  description: "Pesto is a delicious, versatile sauce from the Mediterranean made form basil. I grew lots of basil from Moe's project - so much that I didn't know what to do with it all! I found a few recipes for pesto online and ried it a few times. This is the best version of making pesto that I could come up with. I gave it out to my friends and family and they love it! It goes well with pasta, on toast, or even just as a dip."
+)
+pestopic = URI.open('https://sweetpeaskitchen.com/wp-content/uploads/2019/11/homemade-pesto-sauce-recipe-a4.jpg')
+pesto.photo.attach(io: pestopic, filename: 'basil.jpg', content_type: 'image/jpg')
+
+p1 = ProjectStep.create!(
+  project: pesto,
+  ordinal: 1,
+  header: "Gather your ingredients",
+  description: "You will need basil (of course), pine-nuts, parmesan, and olive oil - plus a little salt and pepper. The ratio for ingrediaents takes some practice - if you're growing your own basil then it will be hard to measure. I found that one bunch of basil (pictured) should have about 50g each of pine-nuts and parmesan, 2 cloves of garlic, and 150ml of olive oil. You can try using walnuts instead of pine-nuts if they are too diffiuclt to find."
+)
+ppic1 = URI.open('https://cdn.shopify.com/s/files/1/2529/4110/products/organic_energy_vegetable_L1060645__02753.jpg?v=1512386553')
+p1.photo.attach(io: ppic1, filename: 'pesto1.jpg', content_type: 'image/jpg')
+
+p2 = ProjectStep.create!(
+  project: pesto,
+  ordinal: 2,
+  header: "Toast the pine-nuts",
+  description: "Toss the nuts in a hot pan for a few minutes, until golden."
+)
+ppic2 = URI.open('https://www.finecooking.com/app/uploads/cms/uploadedimages/images/cooking/articles/issues_21-30/fca30st46-01_xlg.jpg')
+p2.photo.attach(io: ppic2, filename: 'pesto2.jpg', content_type: 'image/jpg')
+
+p3 = ProjectStep.create!(
+  project: pesto,
+  ordinal: 3,
+  header: "Blend the ingredients.",
+  description: "Put all of your ingredients in a blender and pulse them until they are coarse. Don't make it too smooth! You might need to scrape the sides of the blender halfway through."
+)
+ppic3 = URI.open('https://www.ohnuts.com/blog/pesto-recipe-14.jpg')
+p3.photo.attach(io: ppic3, filename: 'pesto3.jpg', content_type: 'image/jpg')
+
+p4 = ProjectStep.create!(
+  project: pesto,
+  ordinal: 4,
+  header: "Add seasoning",
+  description: "Add salt and pepper to taste. I like quite a lot of pepper! I find it's also really nice to add a squeeze of lemon juice at this point, but you don't have to."
+)
+ppic4 = URI.open('https://thesaltymarshmallow.com/wp-content/uploads/2018/04/pesto-recipe6-500x375.jpg')
+p4.photo.attach(io: ppic4, filename: 'pesto4.jpg', content_type: 'image/jpg')
+
+p5 = ProjectStep.create!(
+  project: pesto,
+  ordinal: 5,
+  header: "Store for later",
+  description: "Put the pesto in a jar and cover with a thin layer of olive oil. It will keep up to a week this way. Remember to put another layer of oil on top after you use some! A good trick is to put the pesto in an icecube tray and freeze it. This keeps for about a month, and is easy to use the right amout in your cooking."
+)
+ppic5 = URI.open('https://s3.amazonaws.com/finecooking.s3.tauntonclud.com/app/uploads/2017/05/11135009/pesto.jpg')
+p5.photo.attach(io: ppic5, filename: 'pesto1.jpg', content_type: 'image/jpg')
+
+puts "#{Project.count} projects created."
 
 # QUOTE
 puts 'Deleting all quotes...'
