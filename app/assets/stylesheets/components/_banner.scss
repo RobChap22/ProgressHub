@@ -1,16 +1,46 @@
-.banner {
+.banner1 {
   height: calc(100vh - 70px);
   display: flex;
-  justify-content: space-around;
+  // justify-content: space-around;
   align-items: center;
   // background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset-url(background-home.jpg);
-  background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), asset-url("background5-home.jpg");
+  // background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), asset-url("background5-home.jpg");
+  background-image: asset-url("girl_landing.jpg");
+  background-size: cover;
+  background-position: bottom;
+}
+
+.banner2 {
+  height: calc(100vh - 70px);
+  display: flex;
+  // justify-content: space-around;
+  align-items: center;
+  // background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset-url(background-home.jpg);
+  // background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), asset-url("background5-home.jpg");
+  background-image: asset-url("computer-landing.jpg");
   background-size: cover;
   background-position: center;
 }
+
+.banner3 {
+  height: calc(100vh - 70px);
+  display: flex;
+  // justify-content: space-around;
+  align-items: center;
+  // background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset-url(background-home.jpg);
+  background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), asset-url("background5-home.jpg");
+  // background-image: asset-url("");
+  background-size: cover;
+  }
 
 .banner-content h1 {
   text-shadow: 0 0 13px $light-gray;
   font-size: 80px;
   color: $dark_blue1;
+
+}
+
+.card-banner {
+  background-color:rgba(255,255,255,0.8);
+  // border-radius: 5px;
 }
