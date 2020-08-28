@@ -20,7 +20,7 @@ class ProjectsController < ApplicationController
 
   def update
     if @project.update(project_params)
-      redirect_to dashboard_path, notice: "Published #{@project.title} project"
+      redirect_to "#{url_for(dashboard_path)}#nav-create", notice: "Published #{@project.title} project"
     else
       render "user_projects/show"
     end

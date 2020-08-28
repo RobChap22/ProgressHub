@@ -40,3 +40,14 @@
     </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const hash = window.location.hash;
+    const currentTab = document.querySelector(`${hash}-tab`);
+    console.log(hash, currentTab);
+    if (currentTab) {
+      currentTab.click();
+    }
+  })
+</script>
