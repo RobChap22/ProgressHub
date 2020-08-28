@@ -80,7 +80,8 @@ proj1 = Project.create!(
   published: true
 )
 search_word = proj1[:title]
-proj1pic = URI.open("https://source.unsplash.com/featured/?#{search_word}")
+proj1pic = File.open('app/assets/images/nail.png')
+# URI.open("https://source.unsplash.com/featured/?#{search_word}")
 proj1.photo.attach(io: proj1pic, filename: "#{search_word.split(' ').first}.jpg", content_type: "#{search_word.split(' ').first}/jpg")
 
 proj2 = Project.create!(
@@ -91,7 +92,7 @@ proj2 = Project.create!(
   published: true
 )
 search_word = proj2[:title]
-proj2pic = URI.open("https://source.unsplash.com/featured/?yoga")
+proj2pic = File.open('app/assets/images/yoga.jpg')
 proj2.photo.attach(io: proj2pic, filename: "#{search_word.split(' ').first}.jpg", content_type: "#{search_word.split(' ').first}/jpg")
 
 personal_web = Project.create!(
@@ -102,7 +103,7 @@ personal_web = Project.create!(
   published: false
 )
 search_word = "pc"
-personal_webpic = URI.open("https://source.unsplash.com/featured/?pc")
+personal_webpic = File.open('app/assets/images/pc.jpg')
 personal_web.photo.attach(io: personal_webpic, filename: "#{search_word.split(' ').first}.jpg", content_type: "#{search_word.split(' ').first}/jpg")
 
 
@@ -127,7 +128,7 @@ counter = 1
   header: headers[counter],
   description: descriptions[counter]
 )
-  pic = URI.open("https://source.unsplash.com/featured/?#{headers[counter]} pc")
+  pic = File.open('app/assets/images/personal_web.jpg')
   step.photo.attach(io: pic, filename: "#{headers[counter]}", content_type: 'image/jpg')
   counter += 1
 end
@@ -144,7 +145,7 @@ proj4 = Project.create!(
   published: true
 )
 search_word = proj4[:title]
-proj4pic = URI.open("https://source.unsplash.com/featured/?#{search_word}")
+proj4pic = File.open('app/assets/images/youtube.jpg')
 proj4.photo.attach(io: proj4pic, filename: "#{search_word.split(' ').first}.jpg", content_type: "#{search_word.split(' ').first}/jpg")
 
 proj5 = Project.create!(
@@ -155,7 +156,7 @@ proj5 = Project.create!(
   published: true
 )
 search_word = proj5[:title]
-proj5pic = URI.open("https://source.unsplash.com/featured/?boardgame")
+proj5pic = File.open('app/assets/images/boardgame.jpg')
 proj5.photo.attach(io: proj5pic, filename: "#{search_word.split(' ').first}.jpg", content_type: "#{search_word.split(' ').first}/jpg")
 
 proj6 = Project.create!(
@@ -166,7 +167,7 @@ proj6 = Project.create!(
   published: true
 )
 search_word = proj6[:title]
-proj6pic = URI.open("https://source.unsplash.com/featured/?#{search_word}")
+proj6pic = File.open('app/assets/images/stopmotion.jpeg')
 proj6.photo.attach(io: proj6pic, filename: "#{search_word.split(' ').first}.jpg", content_type: "#{search_word.split(' ').first}/jpg")
 
 proj7 = Project.create!(
@@ -177,7 +178,7 @@ proj7 = Project.create!(
   published: true
 )
 search_word = proj7[:title]
-proj7pic = URI.open("https://source.unsplash.com/featured/?#{search_word}")
+proj7pic = File.open('app/assets/images/localguide.jpg')
 proj7.photo.attach(io: proj7pic, filename: "#{search_word.split(' ').first}.jpg", content_type: "#{search_word.split(' ').first}/jpg")
 
 proj8 = Project.create!(
@@ -188,7 +189,7 @@ proj8 = Project.create!(
   published: true
 )
 search_word = proj8[:title]
-proj8pic = URI.open("https://source.unsplash.com/featured/?#{search_word}")
+proj8pic = File.open('app/assets/images/meditation.jpg')
 proj8.photo.attach(io: proj8pic, filename: "#{search_word.split(' ').first}.jpg", content_type: "#{search_word.split(' ').first}/jpg")
 
 proj9 = Project.create!(
@@ -199,7 +200,8 @@ proj9 = Project.create!(
   published: true
 )
 search_word = proj9[:title]
-proj9pic = URI.open("https://source.unsplash.com/featured/?#{search_word}")
+proj9pic = File.open('app/assets/images/earring.png')
+# URI.open("https://source.unsplash.com/featured/?#{search_word}")
 proj9.photo.attach(io: proj9pic, filename: "#{search_word.split(' ').first}.jpg", content_type: "#{search_word.split(' ').first}/jpg")
 
 projX = Project.create!(
@@ -210,7 +212,7 @@ projX = Project.create!(
   published: true
 )
 search_word = projX[:title]
-projXpic = URI.open("https://source.unsplash.com/featured/?#{search_word}")
+projXpic = File.open('app/assets/images/moodboard.jpg')
 projX.photo.attach(io: projXpic, filename: "#{search_word.split(' ').first}.jpg", content_type: "#{search_word.split(' ').first}/jpg")
 
 projXI = Project.create!(
@@ -221,7 +223,7 @@ projXI = Project.create!(
   published: true
 )
 search_word = projXI[:title]
-projXIpic = URI.open("https://source.unsplash.com/featured/?#{search_word}")
+projXIpic = File.open('app/assets/images/halloween.jpg')
 projXI.photo.attach(io: projXIpic, filename: "#{search_word.split(' ').first}.jpg", content_type: "#{search_word.split(' ').first}/jpg")
 
 projXII = Project.create!(
@@ -232,7 +234,7 @@ projXII = Project.create!(
   published: true
 )
 search_word = projXII[:title]
-projXIIpic = URI.open("https://source.unsplash.com/featured/?desktop")
+projXIIpic = File.open('app/assets/images/pc.jpg')
 projXII.photo.attach(io: projXIIpic, filename: "#{search_word.split(' ').first}.jpg", content_type: "#{search_word.split(' ').first}/jpg")
 
 projXIII = Project.create!(
@@ -243,11 +245,11 @@ projXIII = Project.create!(
   published: true
 )
 search_word = projXIII[:title]
-projXIIIpic = URI.open("https://source.unsplash.com/featured/?#{search_word}")
+projXIIIpic = File.open('app/assets/images/wiki.jpg')
 projXIII.photo.attach(io: projXIIIpic, filename: "#{search_word.split(' ').first}.jpg", content_type: "#{search_word.split(' ').first}/jpg")
 
 
-# BASIL EXAMPLE
+# BASIL EXAMPLEßß
 basil = Project.create!(
   title: "Grow Basil",
   user: moe,
