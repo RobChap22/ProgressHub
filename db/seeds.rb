@@ -452,17 +452,17 @@ webrev3 = Review.create!(
 puts 'Creating complited user_projects forr rob...'
 rob = User.find_by(username: "Rob")
 pc_rob = UserProject.create!(
-  project: projXII,
+  project: projX,
   user: rob,
   completed: true,
-  last_completed: projXII.project_steps.count
+  last_completed: projX.project_steps.count
   )
 
 wiki_rob = UserProject.create!(
-  project: projXIII,
+  project: proj8,
   user: rob,
   completed: true,
-  last_completed: projXIII.project_steps.count
+  last_completed: proj8.project_steps.count
   )
 
 stopmotion_rob = UserProject.create!(
