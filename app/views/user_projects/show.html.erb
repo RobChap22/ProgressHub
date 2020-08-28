@@ -6,7 +6,7 @@
         <a class="nav-link mb-1 d-flex justify-content-between" id="tab-<%= step.ordinal %>" data-toggle="tab" href="#nav-<%= step.ordinal %>" role="tab" aria-controls="nav-<%= step.ordinal %>" aria-selected="false">
           <div><%= "Step #{step.ordinal}" %></div>
           <div>
-            <% if step.ordinal <= @user_project.last_completed %>
+            <% if step.ordinal == @user_project.last_completed %>
               <%= image_tag "check.png", alt: "badge-icon", id: "badge" %>
             <% end %>
           </div>
