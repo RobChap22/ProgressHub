@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   def finished_project_tags
-    tag_hash = { "creative" => 2, "tech" => 0, "practical" => 0, "academic" => 2, "lifestyle" => 2, "social" => 3 }
+    tag_hash = { "creative" => 0, "tech" => 0, "practical" => 0, "academic" => 0, "lifestyle" => 0, "social" => 0 }
     Project.joins(:user_projects).where(user_projects: {completed: true}).each { |proj| proj.tag_list.each { |tag| tag_hash[tag] += 1 unless tag == "easy" || tag == "fun" || tag == "intense" || tag == "moderate" } }
     tag_hash
   end
