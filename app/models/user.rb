@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :projects
   has_many :projects_as_learner, -> (user) { where.not(user: user) }, through: :user_projects, source: :project
   validates :username, presence: true, uniqueness: true
+
 end
