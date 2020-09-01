@@ -16,7 +16,11 @@
   </div>
   <div class="col-4">
     <div class="profile-dash d-flex justify-content-center">
-      <%= cl_image_tag current_user.photo.key, class: "photo-dashbord" %>
+      <% if current_user.photo.attached? %>
+        <%= cl_image_tag current_user.photo.key, class: "photo-dashbord" %>
+      <% else %>
+        <%= image_tag "default-avatar.jpg", class: "avatar" %>
+      <% end %>
       <div class="profile-info">
         <h3><%= current_user.username %></h3>
         <div class="icons">
